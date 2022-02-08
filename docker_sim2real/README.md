@@ -58,10 +58,8 @@ Password:sim2real2022
 ## 5. docker image
 下载镜像
 ```
-sudo docker pull hpf9017/habitat:demo
+sudo docker pull hpf9017/habitat:depth_hfov_and_ee_height
 ```
-![avatar](./pictures/docker_image.png)
-
 <font color= Red>因为镜像文件较大，需等待较长时间</font>
 ![avatar](./pictures/image_ok.png)
 ## 6. docker container
@@ -139,36 +137,49 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 ![avatar](./pictures/key.png)
 
-<font color= Red>(后续会再新建一个docker镜像，配置成nuc的gpu和内存，安装好环境，方便使用)</font>
+
 ## 4. 视觉导航
 
-### 安装依赖
+下载比赛任务镜像
 ```
-sudo apt install ros-noetic-navigation
-sudo apt install ros-noetic-teb-local-planner
-sudo apt install ros-noetic-rtabmap*
-sudo apt install ros-noetic-realsense2-camera*
-sudo apt install ros-noetic-depthimage-to-laserscan
+sudo docker pull hpf9017/sim2real:nav_demo
 ```
-### 拷贝地图
+![avatar](./pictures/docker_image_sim2real.png)
+
+<font color= Red>因为镜像文件较大，需等待较长时间</font>
+![avatar](./pictures/image_ok_sim2real.png)
+## 比赛任务开发docker环境
+新建terminal
 ```
-mv /存放地图的目录/rtabmap.db ~/.ros/
+cd ~/docker_sim2real
 ```
-### 编译工程
+<font color= Red>需要根据宿主机的cpu修改create_container_algo.sh中的cpu和内存参数</font>  
+举例：  
+宿主机cpu为：Intel® Xeon(R) W-2125 CPU @ 4.00GHz × 8  
+机器人cpu为：11th Gen Intel® Core i7-1165G7 @ 2.80GHz × 8  
+则cpu=（2.8 × 8) / 4 = 5.6
+
+机器人内存为：8GB  
+则M=8192M
 ```
-rm -rf build devel
+./create_container_algo.sh
 ```
+<font color= Red>第一次执行会显示“Error: No such container: sim2real_algo”</font>
+![avatar](./pictures/docker_container_sim2real.png)
 ```
-catkin_make
+./exec_elgo.sh
 ```
-### 运行程序
+进入比赛任务开发的docker环境
+
+<font color= Red>确定在2. ros-x-habitat的步骤中已经启动habitat节点，能显示rgb图像和深度图</font>
+
 ```
-source ./devel/setup.bash
+cd ~
 ```
 ```
 roslaunch habitat_navigation rtab_navigation.launch
 ```
-
+![avatar](./pictures/nav_demo.png)
 
 
 
