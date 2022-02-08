@@ -102,8 +102,8 @@ cd ~/docker_habitat
 ./create_container.sh
 ```
 
-# docker操作
-## 1. 运行docker
+# Docker operation
+## 1. To start the docker
 <font color= Red>Run this line again after reset</font>
 ```
 sudo docker start sim2real_env  
@@ -115,7 +115,7 @@ cd ~/docker_habitat
 ```
 ./exec.sh
 ```
-密码：123
+password: `123`
 
 ## <font color= Red>Enter the docker</font>
 ## 2. habitat sim
