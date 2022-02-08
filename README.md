@@ -183,10 +183,10 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 # Reference
 
-[1] [ROS-X-Habitat: Bridging the ROS Ecosystem with Embodied AI](https://arxiv.org/abs/2109.07703) [Repo](https://github.com/ericchen321/ros_x_habitat)
-[2] https://nvidia.github.io/nvidia-docker/
-[3] [How to Train Your [Dragon] Embodied Agent (with AI Habitat)](https://aihabitat.org/tutorial/2020/)
-[4] https://github.com/facebookresearch/habitat-lab
+1. [ROS-X-Habitat: Bridging the ROS Ecosystem with Embodied AI](https://arxiv.org/abs/2109.07703) [Repo](https://github.com/ericchen321/ros_x_habitat)
+2. https://nvidia.github.io/nvidia-docker/
+3. [How to Train Your [Dragon] Embodied Agent (with AI Habitat)](https://aihabitat.org/tutorial/2020/)
+4. https://github.com/facebookresearch/habitat-lab
 
 
 
