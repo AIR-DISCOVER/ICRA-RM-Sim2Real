@@ -1,19 +1,19 @@
 # ICRA-RM-Sim2Real
 
-[中文版本](./README_CN.md)
+[English Version](./README.md)
 
-# Host operation
+# 宿主机操作
 <font color= Red>(在安装前，须将docker_habitat完全移至~路径下)</font>
 ## 1. docker
 若本地尚未安装docker，先进入docker_habitat目录:
 ```
 cd ~/docker_habitat
 ```
-执行：
+执行:
 ```
 ./docker_install.sh  
 ```
-验证：
+验证:
 ```
 docker --version
 ```

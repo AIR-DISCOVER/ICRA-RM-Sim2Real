@@ -1,29 +1,23 @@
-# ICRA-RM-Sim2Real
-
-[中文版本](./README_CN.md)
-
-# Host operation
+# 宿主机操作
 <font color= Red>(在安装前，须将docker_habitat完全移至~路径下)</font>
 ## 1. docker
 若本地尚未安装docker，先进入docker_habitat目录:
 ```
 cd ~/docker_habitat
 ```
-执行：
+执行:
 ```
 ./docker_install.sh  
 ```
-验证：
+验证:
 ```
 docker --version
 ```
 ![avatar](./pictures/docker_version.png)
 
-<!-- chmod -->
 若脚本无法执行，则检查脚本是否有运行权限
-
 ## 2. nvida driver
-创建镜像和容器前需要检查宿主机的显卡驱动是否正常，且与docker内显卡驱动版本一致，目前NVIDIA驱动版本为470.86
+创建镜像和容器前需要检查宿主机的显卡驱动是否正常  
 打开终端，输入nvidia-smi  
 ![avatar](./pictures/nvidia_smi.png)
 ## 3. nvidia-docker2
@@ -39,7 +33,6 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
    && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ```
-https://nvidia.github.io/nvidia-docker/
 
 ```
 sudo apt-get update
@@ -65,7 +58,7 @@ Password:sim2real2022
 ## 5. docker image
 下载镜像
 ```
-sudo docker pull hpf9017/habitat:add_gate
+sudo docker pull hpf9017/habitat:demo
 ```
 ![avatar](./pictures/docker_image.png)
 
@@ -145,6 +138,39 @@ cd ~/docker_habitat
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 ![avatar](./pictures/key.png)
+
+<font color= Red>(后续会再新建一个docker镜像，配置成nuc的gpu和内存，安装好环境，方便使用)</font>
+## 4. 视觉导航
+
+### 安装依赖
+```
+sudo apt install ros-noetic-navigation
+sudo apt install ros-noetic-teb-local-planner
+sudo apt install ros-noetic-rtabmap*
+sudo apt install ros-noetic-realsense2-camera*
+sudo apt install ros-noetic-depthimage-to-laserscan
+```
+### 拷贝地图
+```
+mv /存放地图的目录/rtabmap.db ~/.ros/
+```
+### 编译工程
+```
+rm -rf build devel
+```
+```
+catkin_make
+```
+### 运行程序
+```
+source ./devel/setup.bash
+```
+```
+roslaunch habitat_navigation rtab_navigation.launch
+```
+
+
+
 
 
 
