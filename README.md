@@ -22,7 +22,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
       - briefly introduction
       - SLAM
 - [Installing the system](./README_CN.md)
-- [Related ROS topics](./Tutorial.md#2.2.ROS接口)
+- [Related ROS topics](./Tutorial.md#22ros接口)
 - Map based on cartographer
 - Lidar based navigation cartographer and move_base
 - Optional remote control
@@ -39,7 +39,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
 
 ## Other resource
 
-- the RMUS rulebook
+- [the RMUS rulebook](https://mp.weixin.qq.com/s/nbrXrqv94Kw7df-lRw7ybA)
 - Docker
 - welcome to submit Issues
 - http://wiki.ros.org/ROS/Tutorials#Core_ROS_Tutorials
