@@ -1,5 +1,49 @@
 # ICRA-RM-Sim2Real
 
+## ICRA-RM-Sim2Real Tutorials
+
+Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earlier versions and only want to explore the new ICRA-RM-Sim2Real playground, you can go through the detail of installation guide [here](./README_CN.md). However, going over all basic Beginner Level tutorials is still recommended for all users to get exposed to new features.
+
+If you are new to Linux: You may find it helpful to first do a quick tutorial on common command line tools for linux. A good one is [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).
+
+Hardware requirement: NVIDA GPU 1080+ with driver 470+ in need to support the SIM2REAL environment.
+
+Ubuntu 18.04 or later in need to support more convenient experience.
+
+# Core ROS Tutorials
+
+## Beginner Level
+
+- the system architecture
+  - hardware introduction
+  - [software stack](./Tutorial.md)
+    - Habitat
+    - ROS
+      - briefly introduction
+      - SLAM
+- [Installing the system](./README_CN.md)
+- [Related ROS topics](./Tutorial.md#2.2.ROS接口)
+- Map based on cartographer
+- Lidar based navigation cartographer and move_base
+- Optional remote control
+- etc
+
+## Intermediate Level
+
+- Hands on the baseline
+  - system introduction
+  - functional modules
+- the Judgement system
+  - local
+  - online
+
+## Other resource
+
+- the RMUS rulebook
+- Docker
+- welcome to submit Issues
+- http://wiki.ros.org/ROS/Tutorials#Core_ROS_Tutorials
+
 [中文版本](./README_CN.md)
 
 Related docker repository
@@ -183,10 +227,12 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 # Reference
 
-1. [ROS-X-Habitat: Bridging the ROS Ecosystem with Embodied AI](https://arxiv.org/abs/2109.07703) [Repo](https://github.com/ericchen321/ros_x_habitat)
+1. [ROS-X-Habitat: Bridging the ROS Ecosystem with Embodied AI](https://arxiv.org/abs/2109.07703)
+   - [Repo](https://github.com/ericchen321/ros_x_habitat)
 2. https://nvidia.github.io/nvidia-docker/
 3. [How to Train Your [Dragon] Embodied Agent (with AI Habitat)](https://aihabitat.org/tutorial/2020/)
 4. https://github.com/facebookresearch/habitat-lab
+5. https://github.com/ros/dynamic_reconfigure
 
 
 
