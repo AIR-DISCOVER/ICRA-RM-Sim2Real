@@ -10,7 +10,7 @@ Hardware requirement: NVIDA GPU 1080+ with driver 470+ in need to support the SI
 
 Ubuntu 18.04 or later in need to support more convenient experience.
 
-# Core ROS Tutorials
+# Core Sim2Real Tutorials
 
 ## Beginner Level
 
