@@ -21,6 +21,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
     - ROS
       - briefly introduction
       - SLAM
+    - [Getting Started with the RoboMaster SDK - EP](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/beginner_ep.html)
 - [Installing the system](./README_CN.md)
 - [Related ROS topics](./Tutorial.md#22ros接口)
 - Map based on cartographer
