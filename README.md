@@ -29,7 +29,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
     - [ROS-X-Habitat](https://github.com/ericchen321/ros_x_habitat)
     - [Getting Started with the RoboMaster SDK - EP](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/beginner_ep.html)
 - [Installing the system](./docker_sim2real/sim2real-install-guide.md)
-- [Related ROS topics](./Tutorial.md#22ros接口)
+- [Related ROS topics](./Tutorial.md#3.ROS-interface)
 <!-- - Optional remote control -->
    <!-- log -->
    <!-- Judgement Score -->
@@ -57,7 +57,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
 
 ## Other resource
 
-- [the RMUS rulebook](https://mp.weixin.qq.com/s/nbrXrqv94Kw7df-lRw7ybA)
+- [the RMUS rulebook](https://air.tsinghua.edu.cn/robomaster/RMUS2022_rules_manual.pdf)
 - Docker
 - welcome to submit Issues
 - http://wiki.ros.org/ROS/Tutorials#Core_ROS_Tutorials
