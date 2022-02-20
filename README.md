@@ -71,12 +71,9 @@ Ubuntu 18.04 or later in need to support more convenient experience.
 
 <!-- [中文版本](./README_CN.md) -->
 Related docker repository
-- https://hub.docker.com/repository/docker/hpf9017/habitat
-- https://hub.docker.com/repository/docker/hpf9017/sim2real
+- https://hub.docker.com/repository/docker/rmus2022/server
 
-[README of the sim2real agent](./docker_sim2real/README.md)
-
-The diagram of the EP sim2real system
+<!-- [README of the sim2real agent](./docker_sim2real/README.md) -->
 
 # Reference
 
