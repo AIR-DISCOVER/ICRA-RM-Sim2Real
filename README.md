@@ -63,13 +63,13 @@ Ubuntu 18.04 or later in need to support more convenient experience.
 
 ## Other resource
 
-- [the RMUS rulebook](https://air.tsinghua.edu.cn/robomaster/RMUS2022_rules_manual.pdf)
+- The [ICRA2022 RoboMaster University Sim2Real Challenge (RMUS)](https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html)
+  - [the RMUS rulebook](https://air.tsinghua.edu.cn/robomaster/RMUS2022_rules_manual.pdf)
 - Docker
 - welcome to submit Issues
 - http://wiki.ros.org/ROS/Tutorials#Core_ROS_Tutorials
 
-[中文版本](./README_CN.md)
-
+<!-- [中文版本](./README_CN.md) -->
 Related docker repository
 - https://hub.docker.com/repository/docker/hpf9017/habitat
 - https://hub.docker.com/repository/docker/hpf9017/sim2real
