@@ -12,7 +12,7 @@
 
 the [RoboMaster EP](https://www.dji.com/cn/robomaster-ep) is a autonomous vehicle platform equipped with a 4 axis palletizing robot arm, which is inspired by DJI's annual RoboMaster robotics competition. It provided with Mecanum wheel omnidirectional movement, fast wireless data link system including realtime video stream, and open sdk for further develop and programming.
 
-![chassis-parts-annotation](./assets/chassis-parts-annotation.png)
+![chassis-parts-annotation](./assets/chassis-parts-annotation.jpg)
 
 Additional to the original RoboMaster EP design, during the RUSM sim2real challenge we equipped with seperated onboard lidar, RGBD camera, to get further environment information and NUC PC to extending the online computation capacity.
 

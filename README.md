@@ -7,6 +7,8 @@ The gitee mirror of this repo is provided for mainland user:
 - https://gitee.com/RMUS/ICRA-RM-Sim2Real/
 ## ICRA-RM-Sim2Real Tutorials
 
+![arch of the EP sim2real system](./assets/arch-EP-sim2real.png)
+
 Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earlier versions and only want to explore the new ICRA-RM-Sim2Real playground, you can go through the detail of installation guide [here](./README_CN.md). However, going over all basic Beginner Level tutorials is still recommended for all users to get exposed to new features.
 
 If you are new to Linux: You may find it helpful to first do a quick tutorial on common command line tools for linux. A good one is [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).
@@ -29,7 +31,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
     - [ROS-X-Habitat](https://github.com/ericchen321/ros_x_habitat)
     - [Getting Started with the RoboMaster SDK - EP](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/beginner_ep.html)
 - [Installing the system](./docker_sim2real/sim2real-install-guide.md)
-- [Related ROS topics](./Tutorial.md#3.ROS-interface)
+- [Platform introduction](./Tutorial.md#1-platform-introduction)
 <!-- - Optional remote control -->
    <!-- log -->
    <!-- Judgement Score -->
@@ -41,9 +43,10 @@ Ubuntu 18.04 or later in need to support more convenient experience.
   - system introduction
     - [System installation](./docker_sim2real/sim2real-install-guide.md)
   - [functional modules](./Tutorial.md)
-    - [Map based on cartographer](./Tutorial.md)
+    - [ROS interface](./Tutorial.md#3-ros-interface)
+    - [Map based on cartographer](./Tutorial.md#41-map-based-on-cartographer)
       <!-- RTAB Navi -->
-    - [Lidar based navigation cartographer and move_base](./Tutorial.md)
+    - [Lidar based navigation cartographer and move_base](./Tutorial.md#42-lider-navigation-based-on-cartographer-and-move_base)
     <!-- Digital CV -->
     <!-- box grasp/put -->
 - the Judgement system
@@ -69,8 +72,6 @@ Related docker repository
 - https://hub.docker.com/repository/docker/hpf9017/sim2real
 
 [README of the sim2real agent](./docker_sim2real/README.md)
-
-![arch of the EP sim2real system](./assets/arch-EP-sim2real.png)
 
 The diagram of the EP sim2real system
 
