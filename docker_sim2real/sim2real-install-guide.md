@@ -2,7 +2,7 @@
 <!-- <font color= Red>(在安装前，须将docker_habitat完全移至~路径下)</font> -->
 ## 1. docker
 
-If docker local installation haven't been done, switch to the docker_habitat folder first:
+If docker local installation hasn't been done, switch to the docker_habitat folder first:
 
 ```
 cd ~/docker_habitat
@@ -28,7 +28,7 @@ If the shell script cannot be run, check if there is permission for the script. 
 
 ## 2. nvida driver
 
-Check the version of host GPU driver before create the docker and container, carefully keep the same with the version inside docker. Currently the NVIDIA driver version inside the docker repos is 470.86.
+Check the version of host GPU driver before creating the docker and container, carefully keeping the same with the version inside docker. Currently the NVIDIA driver version inside the docker repos is 470.86.
 
 Open the terminal, input nvidia-smi and press enter.
 
@@ -91,7 +91,7 @@ sudo docker pull hpf9017/habitat:depth_hfov_and_ee_height
 
 ![docker_image](./assets/docker_image.png)
 
-Due the to the size of the image files, waiting for <font color= Red>minutes to more than an hour</font> to download the files is typical.
+Due to the size of the image files, waiting for <font color= Red>minutes to more than an hour</font> to download the files is typical.
 ![image_ok](./assets/image_ok.png)
 ## 6. docker container
 ```
@@ -135,7 +135,7 @@ There should be a window created and scene showed in the window, use W, A, S, D 
 ![habitat_sim](./assets/habitat_sim.png)
 
 ## 2. ros-x-habitat
-<font color= Red>Set the environment variables while start the docker for the first time</font>
+<font color= Red>Set the environment variables while starting the docker for the first time</font>
 
 ```
 echo "export PYTHONPATH=$PYTHONPATH:/home/sim2real/test/src" >> ~/.bashrc
