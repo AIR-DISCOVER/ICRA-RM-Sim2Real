@@ -96,7 +96,7 @@ cd ICRA-RM-Sim2Real/docker_server
 <font color= Red>每次运行该脚本，会删除没有docker commit的修改</font>
 
 
-# docker_server操作
+# docker server操作
 ## 1. 运行docker
 <font color= Red>重启后需要执行一次</font>
 ```
@@ -183,7 +183,113 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 按键4，放置矿石
 
+# docker client操作
+## 1. 下载 docker image
+下载镜像<font color= Red>(tag以最后发布为准)</font>
+```
+sudo docker pull rmus2022/clinet:v0.0.0
+```
 
+## 2. 创建 docker container
+```
+cd ICRA-RM-Sim2Real/docker_client
+```
+<font color= Red>需要确认create_container_client中的tag为正确版本</font>
+
+<font color= Red>需要根据宿主机的cpu修改create_container_client.sh中的cpu和内存参数</font>
+
+举例：
+
+宿主机cpu为：Intel® Xeon(R) W-2125 CPU @ 4.00GHz × 8
+
+机器人cpu为：11th Gen Intel® Core i7-1165G7 @ 2.80GHz × 8
+
+则cpu=（2.8 × 8) / 4 = 5.6
+
+机器人内存为：8GB
+
+则M=8192M
+```
+./create_container_client.sh
+```
+
+<font color= Red>当本地没有sim2real_client容器时会报错，不影响</font>
+
+<font color= Red>每次运行该脚本，会删除没有docker commit的修改</font>
+
+## 3. rtab navigation
+### 运行server环境（docker server操作步骤3）
+正确显示rgb、depth、third_rgb画面
+
+<font color= Red>如果出现错误，重启启动一次</font>
+
+### 运行client环境
+<font color= Red>重启后需要执行一次</font>
+```
+sudo docker start sim2real_client
+```
+新建terminal
+```
+cd ICRA-RM-Sim2Real/docker_client
+```
+```
+./exec_client.sh
+```
+
+```
+cd ~
+```
+```
+roslaunch habitat_navigation rtab_navigation.launch
+```
+通过rviz发送2D Nav Goal
+
+![rtab_nav_demo](./assets/rtab_nav_demo.png)
+
+
+## 4. cartographer navigation
+### 运行server环境（docker server操作步骤3）
+正确显示rgb、depth、third_rgb画面
+
+<font color= Red>如果出现错误，重启启动一次</font>
+
+### 运行client环境
+
+新建terminal
+```
+cd ICRA-RM-Sim2Real/docker_client
+```
+```
+./exec_client.sh
+```
+```
+cd ~
+```
+```
+roslaunch carto_navigation env.launch
+```
+
+新建terminal
+```
+cd ICRA-RM-Sim2Real/docker_client
+```
+```
+./exec_client.sh
+```
+```
+cd ~
+```
+```
+roslaunch carto_navigation navigation.launch
+```
+通过rviz发送2D Nav Goal
+
+![rtab_nav_demo](./assets/carto_nav_demo.png)
+
+
+## 4. 抓取矿石（待补充）
+
+## 4. 放置矿石（待补充）
 
 
 
