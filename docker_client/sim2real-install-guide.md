@@ -1,6 +1,6 @@
-# Host operation
+# 1. Host operation
 <!-- <font color= Red>(在安装前，须将docker_habitat完全移至~路径下)</font> -->
-## 1. Docker
+## 1.1 Docker
 
 Reference for docker installation on Ubuntu: 
 - [docker install](https://docs.docker.com/engine/install/ubuntu/)
@@ -30,7 +30,7 @@ docker --version
 
 If the shell script cannot be run, check if there is permission for the script. Otherwise change the mode with `chmod`
 
-## 2. Nvidia driver
+## 1.2 Nvidia driver
 
 Check the version of host GPU driver before creating the docker and container, carefully keeping the same with the version inside docker. Currently the NVIDIA driver version inside the docker repos is 470.86.
 
@@ -44,13 +44,13 @@ Open the terminal, input nvidia-smi and press enter to get the driver version:
 Know issue:
 - If your OS is Ubuntu21.04 or later, please refer to [issue 18](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/issues/18) to fix.
 
-## 3. Install the `nvidia-docker2`
+## 1.3 Install the `nvidia-docker2`
 
 Reference link for docker installation: 
 
 [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
-### Main stages for docker installation reference
+### 1.3.1 Main stages for docker installation reference
 
 ```bash
 sudo systemctl --now enable docker
@@ -76,7 +76,7 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 <!-- ![nvidia_docker](./assets/nvidia_docker.png) -->
 <img src="./assets/nvidia_docker.png" width="80%">
 
-## 4. docker login
+## 1.4 docker login
 
 Register the dockerhub account: 
 - [dockerhub](https://hub.docker.com/)
@@ -92,7 +92,7 @@ sudo docker login
 
 ![docker_login](./assets/docker_login.png)
 
-## 5. Download the docker image
+## 1.5 Download the docker image
 
 Download the docker image:
 
@@ -108,7 +108,7 @@ Due to the size of the image files, waiting for <font color= Red>minutes to more
 
 ![image_ok](./assets/image_ok.png)
 
-## 6. Create the docker container
+## 1.6 Create the docker container
 
 ```bash
 cd ./ICRA-RM-Sim2Real/docker_server
@@ -127,10 +127,10 @@ cd ./ICRA-RM-Sim2Real/docker_server
 
 <font color= Red>Changes without `docker commit` will be deleted after each time the script run.</font>
 
-# Docker `Server` operation
+# 2. Docker `Server` operation
 
 
-## 1. To start the docker
+## 2.1 To start the docker
 
 <font color= Red>Run this line again after reset</font>
 
@@ -150,7 +150,7 @@ password: `123`
 
 ## <font color= Red>Enter the docker</font>
 
-## 2. Start the Habitat sim
+## 2.2 Start the Habitat sim
 
 ```bash
 cd ~/habitat-sim/
@@ -165,7 +165,7 @@ There should be a window created and scene showed in the window, use W, A, S, D 
 
 ![habitat_sim](./assets/habitat_sim.png)
 
-## 3. Start the `server` simulator
+## 2.3 Start the `server` simulator
 <!-- 
 <font color= Red>Set the environment variables while starting the docker for the first time</font>
 
@@ -216,7 +216,7 @@ python3 src/scripts/roam_with_joy.py --hab-env-config-path ./configs/roam_config
 ![ros_x_habitat_depth](./assets/ros_x_habitat_depth.png)
 ![ros_x_habitat_third](./assets/ros_x_habitat_third.png)
 
-## 4. Control the movement via the keyboard
+## 2.4 Control the movement via the keyboard
 
 Create a new terminal
 
@@ -250,9 +250,9 @@ Press `3`， pick the ore.
 
 Press `4`， place the ore.
 
-# Docker `Client` operation
+# 3. Docker `Client` operation
 
-## 1. Download the  docker image
+## 3.1 Download the  docker image
 
 Download the image <font color= Red>(according to the last released version)</font>.
 
@@ -260,7 +260,7 @@ Download the image <font color= Red>(according to the last released version)</fo
 sudo docker pull rmus2022/client:v0.0.0
 ```
 
-## 2. Creator the `client` container
+## 3.2 Creator the `client` container
 ```
 cd ./ICRA-RM-Sim2Real/docker_client
 ```
@@ -291,15 +291,15 @@ then:
 
 <!-- ![avatar](./assets/docker_container_sim2real.png) -->
 
-## 3. rtab navigation
+## 3.3 rtab navigation
 
-### Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
+### 3.3.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
 <font color= Red>If there is error, start it again.</font>
 
-### Start the `client`
+### 3.3.2 Start the `client`
 
 <font color= Red>Running again after restart.</font>
 
@@ -330,15 +330,15 @@ Send `2D Nav Goal` through `rviz`
 ![rtab_nav_demo](./assets/rtab_nav_demo.png)
 
 
-## 4. cartographer navigation
+## 3.4 cartographer navigation
 
-### Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
+### 3.4.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
 <font color= Red>If there is error, start it again.</font>
 
-### Start the `client`
+### 3.4.2 Start the `client`
 
 Start a new terminal
 
@@ -381,9 +381,9 @@ Send `2D Nav Goal` through `rviz`
 ![rtab_nav_demo](./assets/carto_nav_demo.png)
 
 
-## 5. Pick the ore (TBD)
+## 3.5 Pick the ore (TBD)
 
-## 6. Place the ore (TBD)
+## 3.6 Place the ore (TBD)
 
 <!-- 
 ## 4. Visual navigation
