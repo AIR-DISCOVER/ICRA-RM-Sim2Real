@@ -287,7 +287,7 @@ For example:
 
 ## 3.3 rtab navigation
 
-### 3.3.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
+### 3.3.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#23-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
@@ -326,7 +326,7 @@ Send `2D Nav Goal` through `rviz`
 
 ## 3.4 cartographer navigation
 
-### 3.4.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
+### 3.4.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#23-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
