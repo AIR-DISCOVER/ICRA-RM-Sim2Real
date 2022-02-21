@@ -1,21 +1,25 @@
 # Host operation
 <!-- <font color= Red>(在安装前，须将docker_habitat完全移至~路径下)</font> -->
-## 1. docker
+## 1. Docker
 
-If docker local installation hasn't been done, switch to the docker_habitat folder first:
+Reference for docker installation on Ubuntu: 
+- [docker install](https://docs.docker.com/engine/install/ubuntu/)
+
+If docker local installation hasn't been done, switch to the docker_server folder first:
 
 ```
-cd ~/docker_habitat
+cd ./ICRA-RM-Sim2Real/docker_server
 ```
+
 Execution: 
 
-```
+```bash
 ./docker_install.sh  
 ```
 
 Evaluation
 
-```
+```bash
 docker --version
 ```
 <!-- ![docker_version](./assets/docker_version.png) -->
@@ -26,16 +30,21 @@ docker --version
 
 If the shell script cannot be run, check if there is permission for the script. Otherwise change the mode with `chmod`
 
-## 2. nvida driver
+## 2. Nvidia driver
 
 Check the version of host GPU driver before creating the docker and container, carefully keeping the same with the version inside docker. Currently the NVIDIA driver version inside the docker repos is 470.86.
 
-Open the terminal, input nvidia-smi and press enter.
+In Ubuntu, `Software & Updates > Additional Drivers` is recommanded to update the Nvidia driver.
+
+Open the terminal, input nvidia-smi and press enter to get the driver version:
 
 <!-- ![nvidia_smi](./assets/nvidia_smi.png) -->
 <img src="./assets/nvidia_smi.png" width="80%">
 
-## 3. nvidia-docker2
+Know issue:
+- If your OS is Ubuntu21.04 or later, please refer to [issue 18](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/issues/18) to fix.
+
+## 3. Install the `nvidia-docker2`
 
 Reference link for docker installation: 
 
@@ -43,24 +52,24 @@ Reference link for docker installation:
 
 ### Main stages for docker installation reference
 
-```
+```bash
 sudo systemctl --now enable docker
 ```
 
-```
+```bash
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
    && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
    && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ```
 
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install -y nvidia-docker2
 sudo systemctl restart docker
 ```
 
-```
+```bash
 # test
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 ```
@@ -69,115 +78,313 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
 ## 4. docker login
 
+Register the dockerhub account: 
+- [dockerhub](https://hub.docker.com/)
+
+And get access token for late use: 
+- https://docs.docker.com/docker-hub/access-tokens/
+
 login the docker account
 
 ```
 sudo docker login
 ```
-```
-Username:hpf9017
-Password:sim2real2022
-```
+
 ![docker_login](./assets/docker_login.png)
-## 5. docker image
+
+## 5. Download the docker image
 
 Download the docker image:
 
 <!-- sudo docker pull hpf9017/habitat:add_gate -->
 
 ```
-sudo docker pull hpf9017/habitat:depth_hfov_and_ee_height
+sudo docker pull rmus2022/server:v0.0.2
 ```
 
 ![docker_image](./assets/docker_image.png)
 
 Due to the size of the image files, waiting for <font color= Red>minutes to more than an hour</font> to download the files is typical.
+
 ![image_ok](./assets/image_ok.png)
-## 6. docker container
+
+## 6. Create the docker container
+
+```bash
+cd ./ICRA-RM-Sim2Real/docker_server
 ```
-cd ~/docker_habitat
-```
-```
-./create_container.sh
+<font color= Red>Please ensure the right `tag` version in `create_container_server.sh`</font>
+
+![docker_tag_version](./assets/docker_tag_version.png)
+
+```bash
+./create_container_server.sh
 ```
 
-# Docker operation
+![create_container_server](./assets/create_container_server.png)
+
+<font color= Red>An `Error` will be reported while there is no  `sim2real_server` container. No need to worry.</font>
+
+<font color= Red>Changes without `docker commit` will be deleted after each time the script run.</font>
+
+# Docker `Server` operation
+
+
 ## 1. To start the docker
+
 <font color= Red>Run this line again after reset</font>
-```
-sudo docker start sim2real_env  
+
+```bash
+sudo docker start sim2real_server 
 ```
 
+```bash
+cd ./ICRA-RM-Sim2Real/docker_server
 ```
-cd ~/docker_habitat
-```
-```
-./exec.sh
-```
+
 password: `123`
+
+```bash
+./exec_server.sh
+```
 
 ## <font color= Red>Enter the docker</font>
 
-## 2. Habitat sim
+## 2. Start the Habitat sim
 
-```
-cd ~  
-```
-
-```
-habitat-viewer ./sim_test/scene_datasets/habitat-test-scenes/van-gogh-room.glb  
+```bash
+cd ~/habitat-sim/
 ```
 
+```bash
+./habitat-viewer ./sim_test/scene_datasets/habitat-test-scenes/van-gogh-room.glb  
 ```
+
 There should be a window created and scene showed in the window, use W, A, S, D to control agent move.
 
-```
+
 ![habitat_sim](./assets/habitat_sim.png)
 
-## 2. ros-x-habitat
+## 3. Start the `server` simulator
+<!-- 
 <font color= Red>Set the environment variables while starting the docker for the first time</font>
 
-```
+```bash
 echo "export PYTHONPATH=$PYTHONPATH:/home/sim2real/test/src" >> ~/.bashrc
 ```
 
 ```
 echo "source /home/sim2real/test/devel/setup.bash" >> ~/.bashrc
+``` -->
+
+Start a new terminal.
+
+```bash
+cd ./ICRA-RM-Sim2Real/docker_server
 ```
+
+```bash
+./exec_server.sh
+```
+
 ```
 roscore
 ```
-Start a new terminal
-```
-cd ~/docker_habitat
-```
-```
-./exec.sh
-```
-```
-cd ~/test/src
-```
-```
-python3 src/scripts/roam_with_joy.py --hab-env-config-path ./configs/roam_configs/pointnav_rgbd_roam_mp3d_test_scenes.yaml --episode-id -1 --scene-id ./data/scene_datasets/mp3d/2t7WUuJeko7/2t7WUuJeko7.glb --video-frame-period 30
-```
-![ros_x_habitat](./assets/ros_x_habitat.png)
-
-## 3. Control the movement via the keyboard
 
 Create a new terminal
 
+```bash
+cd ./ICRA-RM-Sim2Real/docker_server
 ```
-cd ~/docker_habitat
+
+```bash
+./exec_server.sh
 ```
+
+```bash
+cd ~/ros_x_habitat_ws/src/ros_x_habitat/
 ```
-./exec.sh
+
+```bash
+python3 src/scripts/roam_with_joy.py --hab-env-config-path ./configs/roam_configs/pointnav_rgbd_roam_mp3d_test_scenes.yaml
+```
+
+ <!-- --episode-id -1 --scene-id ./data/scene_datasets/mp3d/2t7WUuJeko7/2t7WUuJeko7.glb --video-frame-period 30 -->
+
+
+![ros_x_habitat_rgb](./assets/ros_x_habitat_rgb.png)
+![ros_x_habitat_depth](./assets/ros_x_habitat_depth.png)
+![ros_x_habitat_third](./assets/ros_x_habitat_third.png)
+
+## 4. Control the movement via the keyboard
+
+Create a new terminal
+
+```bash
+cd ./ICRA-RM-Sim2Real/docker_server
+```
+```bash
+./exec_server.sh
 ```
 ```
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
+
+<font color= Red>Mouse click to activate the terminal of keyboard control</font>
+
 ![key ctr](./assets/key.png)
 
+<font color= Red>Press `q`, `z`, increase or decrease the speed of the robot.</font>
 
+Press `i`， `j`， `，` ， `l`， to control forward/backward/rotation.
+
+Press `I`， `J`， `<`， `L`， to control the horizontal movement.
+
+Press `k`, stop the robot moving.
+
+Press `1`, to move the robotic arm to the place to grab up.
+
+Press `2`， to move the robotic arm to the place to place down.
+
+Press `3`， get the ore.
+
+Press `4`， place the ore.
+
+# Docker `Client` operation
+
+## 1. Download the  docker image
+
+Download the image <font color= Red>(according to the last released version)</font>.
+
+```bash
+sudo docker pull rmus2022/client:v0.0.0
+```
+
+## 2. Creator the `client` container
+```
+cd ./ICRA-RM-Sim2Real/docker_client
+```
+<font color= Red>Confirm the `tag` in `create_container_client` is the right version.</font>
+
+<font color= Red>Change the CPU and RAM parameter from the `create_container_algo.sh` according to the host machine, to meet the performance of robot on board NUC unit.
+</font>  
+
+For example:   
+the host CPU: Intel® Xeon(R) W-2125 CPU @ 4.00GHz * 8  
+NUC onboard cpu: 11th Gen Intel® Core i7-1165G7 @ 2.80GHz * 8  
+
+then:
+`cpu = (2.8 * 8) / 4 = 5.6`
+
+NUC onboard RAM: 8GB  
+
+then:
+`M=8192M`
+
+```bash
+./create_container_client.sh
+```
+
+<font color= Red>for the first time of execution there will be "Error: No such container: sim2real_algo", no need to worry.</font>
+
+<font color= Red>Changes without `docker commit` will be deleted after each time the script run.</font>
+
+<!-- ![avatar](./assets/docker_container_sim2real.png) -->
+
+## 3. rtab navigation
+
+### Start the `server` (follow the [step 3](#3start-the `server` simulator) in docker server)
+
+The `RGB`, `depth`, `third_rgb` monitor should be correct.
+
+<font color= Red>If there is error, start it again.</font>
+
+### Start the `client`
+
+<font color= Red>Running again after restart.</font>
+
+```ssh
+sudo docker start sim2real_client
+```
+
+Start a new terminal
+
+```bash
+cd ICRA-RM-Sim2Real/docker_client
+```
+
+```bash
+./exec_client.sh
+```
+
+```bash
+cd ~
+```
+
+```bash
+roslaunch habitat_navigation rtab_navigation.launch
+```
+
+Send `2D Nav Goal` through `rviz`
+
+![rtab_nav_demo](./assets/rtab_nav_demo.png)
+
+
+## 4. cartographer navigation
+### 运行server环境（docker server操作步骤3）
+
+The `RGB`, `depth`, `third_rgb` monitor should be correct.
+
+<font color= Red>If there is error, start it again.</font>
+
+### Start the `client`
+
+Start a new terminal
+
+```bash
+cd ./ICRA-RM-Sim2Real/docker_client
+```
+
+```bash
+./exec_client.sh
+```
+
+```bash
+cd ~
+```
+
+```bash
+roslaunch carto_navigation env.launch
+```
+
+Start a new terminal
+
+```bash
+cd ICRA-RM-Sim2Real/docker_client
+```
+
+```bash
+./exec_client.sh
+```
+
+```bash
+cd ~
+```
+
+```bash
+roslaunch carto_navigation navigation.launch
+```
+
+Send `2D Nav Goal` through `rviz`
+
+![rtab_nav_demo](./assets/carto_nav_demo.png)
+
+
+## 5. Take the ore (TBD)
+
+## 6. Place the ore (TBD)
+
+<!-- 
 ## 4. Visual navigation
 
 Download the docker for the competition:
@@ -197,27 +404,6 @@ The sim/real robot onboard computation sharing the same docker system provided h
 
 Start a new terminal
 
-```
-cd ~/docker_sim2real
-```
-<font color= Red>Change the CPU and RAM parameter from the `create_container_algo.sh` according to the host machine
-</font>  
-For example:   
-the host CPU: Intel® Xeon(R) W-2125 CPU @ 4.00GHz * 8  
-NUC onboard cpu: 11th Gen Intel® Core i7-1165G7 @ 2.80GHz * 8  
-
-then:
-
-`cpu = (2.8 * 8) / 4 = 5.6`
-
-NUC onboard RAM: 8GB  
-
-then: 
-`M=8192M`
-
-```
-./create_container_algo.sh
-```
 <font color= Red>for the first time of execution there will be "Error: No such container: sim2real_algo"</font>
 ![avatar](./assets/docker_container_sim2real.png)
 ```
@@ -233,5 +419,5 @@ cd ~
 ```
 roslaunch habitat_navigation rtab_navigation.launch
 ```
-![avatar](./assets/nav_demo.png)
+![avatar](./assets/nav_demo.png) -->
 

@@ -13,7 +13,7 @@ The gitee mirror of this repo is provided for mainland user:
 
 The `RMUS SIM2REAL` system consists of the Server/Client two parts seperately, one is the server docker image to deploy the simulation environment and the other is the client docker image to deploy the user algorithm for the EP robot to connect the environment both for simulation and reality.
 
-Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earlier versions and only want to explore the new ICRA-RM-Sim2Real playground, you can go through the details of installation guide [here](./docker_sim2real/sim2real-install-guide.md). However, going through all basic Entry Level tutorials is still recommended for all users to get exposed to new features.
+Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earlier versions and only want to explore the new ICRA-RM-Sim2Real playground, you can go through the details of installation guide [here](./docker_client/sim2real-install-guide.md). However, going through all basic Entry Level tutorials is still recommended for all users to get exposed to new features.
 
 If you are new to Linux: You may find it helpful to first do a quick tutorial on common command line tools for linux. A good one is [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).
 
@@ -33,7 +33,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
       - SLAM -->
     - [ROS-X-Habitat](https://github.com/ericchen321/ros_x_habitat)
     - [Getting Started with the RoboMaster SDK - EP](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/beginner_ep.html)
-- [Installing the system](./docker_sim2real/sim2real-install-guide.md)
+- [Installing the system](./docker_client/sim2real-install-guide.md)
 - [Platform introduction](./Tutorial.md#1-platform-introduction)
 <!-- - Optional remote control -->
    <!-- log -->
@@ -44,7 +44,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
 
 - Hands on the baseline
   - system introduction
-    - [System installation](./docker_sim2real/sim2real-install-guide.md)
+    - [System installation](./docker_client/sim2real-install-guide.md)
   - [functional modules](./Tutorial.md)
     - [ROS interface](./Tutorial.md#3-ros-interface)
     - [Map based on cartographer](./Tutorial.md#41-map-based-on-cartographer)
