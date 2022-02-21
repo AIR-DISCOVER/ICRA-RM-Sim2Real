@@ -246,7 +246,7 @@ Press `1`, to move the robotic arm to the place to grab up.
 
 Press `2`， to move the robotic arm to the place to place down.
 
-Press `3`， get the ore.
+Press `3`， pick the ore.
 
 Press `4`， place the ore.
 
@@ -293,7 +293,7 @@ then:
 
 ## 3. rtab navigation
 
-### Start the `server` (follow the [step 3](#3start-the `server` simulator) in docker server)
+### Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
@@ -331,7 +331,8 @@ Send `2D Nav Goal` through `rviz`
 
 
 ## 4. cartographer navigation
-### 运行server环境（docker server操作步骤3）
+
+### Start the `server` (follow the [step 3](./sim2real-install-guide.md#3-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
@@ -380,7 +381,7 @@ Send `2D Nav Goal` through `rviz`
 ![rtab_nav_demo](./assets/carto_nav_demo.png)
 
 
-## 5. Take the ore (TBD)
+## 5. Pick the ore (TBD)
 
 ## 6. Place the ore (TBD)
 
