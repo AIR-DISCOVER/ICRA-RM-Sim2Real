@@ -148,7 +148,7 @@ password: `123`
 ./exec_server.sh
 ```
 
-## <font color= Red>Enter the docker</font>
+<font color= Red>Enter the docker</font>
 
 ## 2.2 Start the Habitat sim
 
@@ -236,19 +236,13 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 <font color= Red>Press `q`, `z`, increase or decrease the speed of the robot.</font>
 
-Press `i`， `j`， `，` ， `l`， to control forward/backward/rotation.
-
-Press `I`， `J`， `<`， `L`， to control the horizontal movement.
-
-Press `k`, stop the robot moving.
-
-Press `1`, to move the robotic arm to the place to grab up.
-
-Press `2`， to move the robotic arm to the place to place down.
-
-Press `3`， pick the ore.
-
-Press `4`， place the ore.
+- Press `i`， `j`， `，` ， `l`， to control forward/backward/rotation.
+- Press `I`， `J`， `<`， `L`， to control the horizontal movement.
+- Press `k`, stop the robot moving.
+- Press `1`, to move the robotic arm to the place to grab up.
+- Press `2`， to move the robotic arm to the place to place down.
+- Press `3`， to pick the ore.
+- Press `4`， to place the ore.
 
 # 3. Docker `Client` operation
 
@@ -270,16 +264,16 @@ cd ./ICRA-RM-Sim2Real/docker_client
 </font>  
 
 For example:   
-the host CPU: Intel® Xeon(R) W-2125 CPU @ 4.00GHz * 8  
-NUC onboard cpu: 11th Gen Intel® Core i7-1165G7 @ 2.80GHz * 8  
-
-then:
-`cpu = (2.8 * 8) / 4 = 5.6`
-
-NUC onboard RAM: 8GB  
-
-then:
-`M=8192M`
+> the host CPU: Intel® Xeon(R) W-2125 CPU @ 4.00GHz * 8  
+> NUC onboard cpu: 11th Gen Intel® Core i7-1165G7 @ 2.80GHz * 8  
+> 
+> then:
+> `cpu = (2.8 * 8) / 4 = 5.6`
+>
+> NUC onboard RAM: 8GB  
+>
+> then:
+> `M=8192M`
 
 ```bash
 ./create_container_client.sh
