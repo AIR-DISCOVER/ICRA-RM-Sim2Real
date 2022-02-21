@@ -1,6 +1,6 @@
-sudo docker rm -f sim2real_algo
+sudo docker rm -f sim2real_client
 
-sudo docker run -id --gpus all --name sim2real_algo --network host \
+sudo docker run -id --gpus all --name sim2real_client --network host \
 	--cpus=5.6 -m 8192M \
 	--privileged -v /dev:/dev -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 \
 	-v /dev/bus/usb:/dev/bus/usb \
@@ -12,6 +12,6 @@ sudo docker run -id --gpus all --name sim2real_algo --network host \
         -v /dev/video5:/dev/video5 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v $HOME/Desktop/shared:/shared \
-	hpf9017/sim2real:nav_demo
+	rmus2022/client:v0.0.0
 
 sudo xhost +
