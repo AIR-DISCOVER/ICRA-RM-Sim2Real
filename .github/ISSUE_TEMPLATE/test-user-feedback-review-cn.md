@@ -23,6 +23,8 @@ If not, please describe the requirement you need below.
 
 # Bugs and compatibility issues
 
+<!-- 如果有已经提过的issues，可以链接到这里 -->
+
 ## Bugs
 
 - `[Issue description]` or `[the link of the issue you reported]`

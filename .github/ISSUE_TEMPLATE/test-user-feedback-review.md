@@ -24,6 +24,8 @@ If not, please describe the requirement you need below.
 
 # Bugs and compatibility issues
 
+<!-- if there are issues you've already reported, please link to here -->
+
 ## Bugs
 
 - `[Issue description]` or `[the link of the issue you reported]`
