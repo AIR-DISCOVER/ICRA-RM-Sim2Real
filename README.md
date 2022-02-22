@@ -19,22 +19,20 @@ If you are new to Linux: You may find it helpful to first do a quick tutorial on
 
 Hardware requirement: NVIDA GPU 1080+ with driver 470+ in need to support the SIM2REAL environment.
 
-Ubuntu 18.04 or later in need to support more convenient experience.
+Ubuntu `20.04` or later in need to support more convenient experience.
 
 <!-- # Core Sim2Real Tutorials -->
 ## Entry Level
 
-- the system architecture
-  - hardware introduction
-  - [software stack](./Tutorial.md)
-    - [Habitat](https://github.com/facebookresearch/habitat-sim)
-    - [ROS](http://wiki.ros.org/ROS/Tutorials)
-      <!-- - briefly introduction
-      - SLAM -->
-    - [ROS-X-Habitat](https://github.com/ericchen321/ros_x_habitat)
-    - [Getting Started with the RoboMaster SDK - EP](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/beginner_ep.html)
 - [Installing the system](./docker_client/sim2real-install-guide.md)
 - [Platform introduction](./Tutorial.md#1-platform-introduction)
+- [Software stack](./Tutorial.md)
+  - [Habitat](https://github.com/facebookresearch/habitat-sim)
+  - [ROS](http://wiki.ros.org/ROS/Tutorials)
+      <!-- - briefly introduction
+      - SLAM -->
+  - [ROS-X-Habitat](https://github.com/ericchen321/ros_x_habitat)
+  - [Getting Started with the RoboMaster SDK - EP](https://robomaster-dev.readthedocs.io/en/latest/python_sdk/beginner_ep.html)
 <!-- - Optional remote control -->
    <!-- log -->
    <!-- Judgement Score -->
@@ -45,7 +43,7 @@ Ubuntu 18.04 or later in need to support more convenient experience.
 - Hands on the baseline
   - system introduction
     - [System installation](./docker_client/sim2real-install-guide.md)
-  - [functional modules](./Tutorial.md)
+  - [Functional modules](./Tutorial.md)
     - [ROS interface](./Tutorial.md#3-ros-interface)
     - [Map based on cartographer](./Tutorial.md#41-map-based-on-cartographer)
       <!-- RTAB Navi -->
