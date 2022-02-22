@@ -8,6 +8,12 @@ assignees: ''
 
 ---
 
+We recommend you report the bugs and features dedicatedly in the issues as well, just keep the reference links here.
+
+The template to report bug and feature:
+- [bug report](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/issues/new?assignees=&labels=&template=bug_report.md&title=%5BBug+report%5D)
+- [feature request](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/issues/new?assignees=&labels=&template=feature_request.md&title=%5BFeature+request%5D)
+
 # Experience
 
 - [ ] Is the [tutorial](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/blob/main/Tutorial.md) comprehensive enough?
