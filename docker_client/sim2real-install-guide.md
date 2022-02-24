@@ -157,8 +157,9 @@ cd ~/habitat-sim/
 ```
 
 ```bash
-./habitat-viewer ./sim_test/scene_datasets/habitat-test-scenes/van-gogh-room.glb  
+./build/viewer ./data/scene_datasets/habitat-test-scenes/van-gogh-room.glb 
 ```
+<!-- ./habitat-viewer ./sim_test/scene_datasets/habitat-test-scenes/van-gogh-room.glb   -->
 
 There should be a window created and scene showed in the window, use W, A, S, D to control agent move.
 
