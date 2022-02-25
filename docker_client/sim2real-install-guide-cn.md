@@ -187,7 +187,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ## 1. 下载 docker image
 下载镜像<font color= Red>(tag以最后发布为准)</font>
 ```
-sudo docker pull rmus2022/clinet:v0.0.0
+sudo docker pull rmus2022/client:v0.0.0
 ```
 
 ## 2. 创建 docker container
