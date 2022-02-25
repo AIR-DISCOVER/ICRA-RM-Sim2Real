@@ -198,6 +198,10 @@ cd ICRA-RM-Sim2Real/docker_client
 
 <font color= Red>需要根据宿主机的cpu修改create_container_client.sh中的cpu和内存参数</font>
 
+cpu参数计算公式：
+```
+cpu=（NUC的cpu单核频率 × NUC的cpu个数）/ 宿主机单核频率
+```
 举例：
 
 宿主机cpu为：Intel® Xeon(R) W-2125 CPU @ 4.00GHz × 8
