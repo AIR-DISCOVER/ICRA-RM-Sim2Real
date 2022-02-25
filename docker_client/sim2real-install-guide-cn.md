@@ -295,8 +295,73 @@ roslaunch carto_navigation navigation.launch
 
 ## 4. 放置矿石（待补充）
 
+# 上传client镜像
 
+## 1. 新建privtate repo
+参赛队伍在自己注册的dockerhub上新建一个private repo，名字为rmus2022
 
+![create_repo](./assets/create_repo.png)
+
+![create_repo_detail](./assets/create_repo_detail.png)
+
+## 2. 将client镜像push到private repo
+将下载的client镜像打上tag(tag名称，参赛队伍可以自定义)，dockerhub_name为dcokerhub的账号名字
+```
+sudo docker tag rmus2022/client:v.0.1.0 dockerhub_name/rmus2022:tag
+```
+![change_docker_tag](./assets/change-docker_tag.png)
+
+将新tag的client镜像push到private repo
+```
+sudo docker push dockerhub_name/rmus2022:tag
+```
+
+![docker_push](./assets/docker_push.png)
+
+## 2. 开发比赛任务
+根据private repo和tag名字，修改create_client里的镜像名和tag
+
+![change_create_para](./assets/change_create_para.png)
+
+运行create_client.sh，创建新容器
+
+运行exec_client.sh，进入client镜像进行开发
+
+推荐使用git工具管理好代码版本
+
+在docker中可以通过vscode进行开发
+
+![use_vscode](./assets/use_vscode.png)
+
+## 3. docker commit
+本地保存镜像修改内容，使用原有的tag会覆盖之前tag版本的内容
+```
+sudo docker commit sim2real_client dockerhub_name/rmus2022:new_tag
+```
+
+![docker_commit](./assets/docker_commit.png)
+
+## 4. docker push
+通过docker push到private repo保存当前docker镜像到dockerhub
+```
+sudo docker push dockerhub_name/rmus2022:tag
+```
+
+![docker_push_new](./assets/docker_push_new.png)
+
+## 5，生成访问token
+参考连接：[docker token](https://docs.docker.com/docker-hub/access-tokens/)
+
+在需要提交测试的版本时，
+将dockerhub用户名、docker token由比赛系统提交。
+
+![enter_account_setting](./assets/enter_account_setting.png)
+
+![create_token_pos](./assets/create_token_pos.png)
+
+![create_token](./assets/create_token.png)
+
+![token_created](./assets/token_created.png)
 
 
 
