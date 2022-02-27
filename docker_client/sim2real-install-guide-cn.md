@@ -1,7 +1,5 @@
 # 宿主机操作
 ## 1. 安装 docker
-安装参考连接：[docker install](https://docs.docker.com/engine/install/ubuntu/)
-
 若本地尚未安装docker，先进入docker_server目录:
 ```
 cd ICRA-RM-Sim2Real/docker_server
@@ -20,6 +18,8 @@ docker --version
 
 <img src="./assets/docker_version.png" width="40%">
 
+安装参考连接：[docker install](https://docs.docker.com/engine/install/ubuntu/)
+
 <!-- chmod -->
 
 ## 2. 安装 nvida driver
@@ -34,9 +34,6 @@ docker --version
 <font color= Red>目前支持的驱动版本为470和510</font>
 
 ## 3. 安装 nvidia-docker2
-安装参考连接：[nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
-
-### 摘取的主要步骤，可做参考
 ```
 sudo systemctl --now enable docker
 ```
@@ -59,6 +56,8 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 <!-- ![nvidia_docker](./assets/nvidia_docker.png) -->
 <img src="./assets/nvidia_docker.png" width="80%">
 
+安装参考连接：[nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+
 ## 4. 注册 dockerhub
 注册dockerhub账号：[dockerhub](https://hub.docker.com/)
 
@@ -73,9 +72,21 @@ sudo docker login
 ```
 sudo docker pull rmus2022/server:v1.0.0
 ```
+组委会提供了四个镜像源：
+
+rmus2022/server：v1.0.0
+
+rmus2022-1/server：v1.0.0
+
+rmus2022-2/server：v1.0.0
+
+rmus2022-3/server：v1.0.0
+
 ![docker_image](./assets/docker_image.png)
 
 <font color= Red>因为镜像文件较大，需等待较长时间</font>
+
+<font color= Red>中国大陆参赛队伍不推荐使用校园网</font>
 
 ![image_ok](./assets/image_ok.png)
 
@@ -83,7 +94,7 @@ sudo docker pull rmus2022/server:v1.0.0
 ```
 cd ICRA-RM-Sim2Real/docker_server
 ```
-<font color= Red>需要确认create_container_server中的tag为正确版本</font>
+<font color= Red>需要确认create_container_server中的repo和tag为正确版本</font>
 
 ![docker_tag_version](./assets/docker_tag_version.png)
 ```
@@ -147,6 +158,10 @@ cd ~/ros_x_habitat_ws/src/ros_x_habitat/
 ```
 python3 src/scripts/roam_with_joy.py --hab-env-config-path ./configs/roam_configs/pointnav_rgbd_roam_mp3d_test_scenes.yaml
 ```
+正确显示rgb、depth、third_rgb画面
+
+<font color= Red>如果出现错误，重启启动一次</font>
+
 ![ros_x_habitat_rgb](./assets/ros_x_habitat_rgb.png)
 ![ros_x_habitat_depth](./assets/ros_x_habitat_depth.png)
 ![ros_x_habitat_third](./assets/ros_x_habitat_third.png)
@@ -189,12 +204,21 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 sudo docker pull rmus2022/client:v1.0.0
 ```
+组委会提供了四个镜像源：
+
+rmus2022/client：v1.0.0
+
+rmus2022-1/client：v1.0.0
+
+rmus2022-2/client：v1.0.0
+
+rmus2022-3/client：v1.0.0
 
 ## 2. 创建 docker container
 ```
 cd ICRA-RM-Sim2Real/docker_client
 ```
-<font color= Red>需要确认create_container_client中的tag为正确版本</font>
+<font color= Red>需要确认create_container_client中的repo和tag为正确版本</font>
 
 <font color= Red>需要根据宿主机的cpu修改create_container_client.sh中的cpu和内存参数</font>
 
@@ -244,7 +268,7 @@ cd ICRA-RM-Sim2Real/docker_client
 cd ~
 ```
 ```
-roslaunch habitat_navigation rtab_navigation.launch
+roslaunch rtab_navigation rtab_navigation.launch
 ```
 通过rviz发送2D Nav Goal
 
@@ -270,51 +294,53 @@ cd ICRA-RM-Sim2Real/docker_client
 cd ~
 ```
 ```
-roslaunch carto_navigation env.launch
-```
-
-新建terminal
-```
-cd ICRA-RM-Sim2Real/docker_client
-```
-```
-./exec_client.sh
-```
-```
-cd ~
-```
-```
 roslaunch carto_navigation navigation.launch
 ```
 通过rviz发送2D Nav Goal
 
 ![rtab_nav_demo](./assets/carto_nav_demo.png)
 
-## 4. 抓取矿石（待补充）
 
-1. 运行红色 marker 检测程序
+## 5. 抓取矿石
+### 遥控机器人到矿石前方，运行红色 marker 检测程序
 
-   1. 新建terminal
+新建terminal
 
-   2. 输入以下命令：
+输入以下命令：
+```
+roscd ep_detect_and_grasp
+```
+```
+python3 detect_cube.py
+```
+![detect_cube](./assets/detect_cube.png)
 
-      ```
-      python3 detect_cube.py
-      ```
+### 运行抓取矿石演示程序
 
-2. 运行抓取矿石演示程序
+新建terminal
 
-   1. 新建terminal
+输入以下命令：
+```
+roscd ep_detect_and_grasp
+```
 
-   2. 输入以下命令：
+```
+python3 place_cube.py
+```
 
-      ```
-      python3 grasp_cube.py
-      ```
+## 6. 放置矿石
 
-      
+遥控机器人到矿石前方,确保 detect_cube.py 已经开始运行
 
-## 4. 放置矿石（待补充）
+新建terminal
+
+输入以下命令：
+
+```
+python3 place_cude.py
+```
+
+4. 程序会选择放置槽的 “O” 位置进行放置
 
 1. 确保 detect_cube.py 已经开始运行
 
