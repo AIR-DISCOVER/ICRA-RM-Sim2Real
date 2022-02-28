@@ -25,8 +25,8 @@ Ubuntu `20.04` or later in need to support more convenient experience.
 ## Entry Level
 
 - [Installing the system](./docker_client/sim2real-install-guide.md)
-- [Platform introduction](./Tutorial.md#1-platform-introduction)
-- [Software stack](./Tutorial.md)
+- [Platform introduction](./tutorial-RMUS-EP.md#1-platform-introduction)
+- Software stack
   - [Habitat](https://github.com/facebookresearch/habitat-sim)
   - [ROS](http://wiki.ros.org/ROS/Tutorials)
       <!-- - briefly introduction
@@ -41,13 +41,13 @@ Ubuntu `20.04` or later in need to support more convenient experience.
 ## Intermediate Level
 
 - Hands on the baseline
-  - system introduction
+  - System introduction
     - [System installation](./docker_client/sim2real-install-guide.md)
-  - [Functional modules](./Tutorial.md)
-    - [ROS interface](./Tutorial.md#3-ros-interface)
-    - [Map based on cartographer](./Tutorial.md#41-map-based-on-cartographer)
+  - [Functional modules](./tutorial-RMUS-EP.md)
+    - [ROS interface](./tutorial-RMUS-EP.md#3-ros-interface)
+    - [Map based on cartographer](./tutorial-RMUS-EP.md#41-map-based-on-cartographer)
       <!-- RTAB Navi -->
-    - [Lidar based navigation cartographer and move_base](./Tutorial.md#42-lider-navigation-based-on-cartographer-and-move_base)
+    - [Lidar based navigation cartographer and move_base](./tutorial-RMUS-EP.md#42-lider-navigation-based-on-cartographer-and-move_base)
     <!-- Digital CV -->
     <!-- box grasp/put -->
 - the Judgement system

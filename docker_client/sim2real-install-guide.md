@@ -161,7 +161,7 @@ cd ~/habitat-sim/
 ```
 <!-- ./habitat-viewer ./sim_test/scene_datasets/habitat-test-scenes/van-gogh-room.glb   -->
 
-There should be a window created and scene showed in the window, use W, A, S, D to control agent move.
+There should be a window created and scene showed in the window, use `W`, `A`, `S`, `D` to control agent move.
 
 
 ![habitat_sim](./assets/habitat_sim.png)
@@ -263,6 +263,12 @@ cd ./ICRA-RM-Sim2Real/docker_client
 
 <font color= Red>Change the CPU and RAM parameter from the `create_container_algo.sh` according to the host machine, to meet the performance of robot on board NUC unit.
 </font>  
+
+Formula to compute CPU scaling coefficient
+
+```
+cpu = (Freq of single CPU core in NUC * cores of NUC CPU)/(Freq of CPU in the host)
+```
 
 For example:   
 > the host CPU: Intel® Xeon(R) W-2125 CPU @ 4.00GHz * 8  
@@ -376,9 +382,122 @@ Send `2D Nav Goal` through `rviz`
 ![rtab_nav_demo](./assets/carto_nav_demo.png)
 
 
-## 3.5 Pick the ore (TBD)
+## 3.5 Pick the mineral ore
 
-## 3.6 Place the ore (TBD)
+### 3.5.1 Start the red marker detector
+
+1. Start a new terminal
+2. Enter the following command: 
+
+```bash
+python3 detect_cube.py
+```
+
+### 3.5.2 Start the mineral ore pick demonstration
+
+1. Start a new terminal
+2. Enter the following command: 
+
+```bash
+python3 grasp_cube.py
+```
+
+## 3.6 Place the mineral ore
+
+1. Ensure `detect_cube.py` is started
+2. Start a new terminal
+3. Enter the following command: 
+
+```bash
+python3 place_cube.py
+```
+
+4. The robot will get the leftmost Exchange Station to place
+
+# 4. Update the client image
+
+The [challenge](https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html) submit the player algorithm with [https://hub.docker.com/](https://hub.docker.com/)
+
+## 4.1 Create a new privtate repo
+
+Create a new private repo for the challenge with the name `rmus2022`
+
+![create_repo](./assets/create_repo.png)
+
+![create_repo_detail](./assets/create_repo_detail.png)
+
+## 4.2 Push the client image to the private repo just created
+
+Package the downloaded [client image](#31-download-the--docker-image) with tag (could be user defined), with the `dockerhub_name` from the name of your dockerhub account: 
+
+```bash
+sudo docker tag rmus2022/client:v.0.1.0 dockerhub_name/rmus2022:tag
+```
+
+![change_docker_tag](./assets/change-docker_tag.png)
+
+Push the new client image with your tag to your private repo:
+
+```bash
+sudo docker push dockerhub_name/rmus2022:tag
+```
+
+![docker_push](./assets/docker_push.png)
+
+## 4.3 Develop your algorithm
+
+According to your private repo and the name of your tag, change the image name in `create_container_client.sh`: 
+
+![change_create_para](./assets/change_create_para.png)
+
+then: 
+1. Start the `create_client.sh`, create a new container
+2. Start the `exec_client.sh` enter the client image to develop
+
+[git](https://git-scm.com/) tool is recommanded to manage the code version.
+
+`vscode` editor is available to develop in the docker
+
+```bash
+code ~/ep_ws
+```
+
+![use_vscode](./assets/use_vscode.png)
+
+## 4.4 Docker commit
+
+Save the edited docker locally, using the original tag will overwrite the content of the previous tag version.
+
+```bash
+sudo docker commit sim2real_client dockerhub_name/rmus2022:new_tag
+```
+
+![docker_commit](./assets/docker_commit.png)
+
+## 4.5 Docker push
+
+Push the docker to private repo to save the current docker image to dockerhub
+
+```
+sudo docker push dockerhub_name/rmus2022:tag
+```
+
+![docker_push_new](./assets/docker_push_new.png)
+
+## 4.6 Get the access token
+
+Reference link to docker token
+- [https://docs.docker.com/docker-hub/access-tokens/](https://docs.docker.com/docker-hub/access-tokens/)
+
+While submit the evaluation version to the [challenge](https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html), the account name and token of dockerhub will submit via the online system.
+
+![enter_account_setting](./assets/enter_account_setting.png)
+
+![create_token_pos](./assets/create_token_pos.png)
+
+![create_token](./assets/create_token.png)
+
+![token_created](./assets/token_created.png)
 
 <!-- 
 ## 4. Visual navigation

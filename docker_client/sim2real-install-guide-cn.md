@@ -290,10 +290,43 @@ roslaunch carto_navigation navigation.launch
 
 ![rtab_nav_demo](./assets/carto_nav_demo.png)
 
-
 ## 4. 抓取矿石（待补充）
 
+1. 运行红色 marker 检测程序
+
+   1. 新建terminal
+
+   2. 输入以下命令：
+
+      ```
+      python3 detect_cube.py
+      ```
+
+2. 运行抓取矿石演示程序
+
+   1. 新建terminal
+
+   2. 输入以下命令：
+
+      ```
+      python3 grasp_cube.py
+      ```
+
+      
+
 ## 4. 放置矿石（待补充）
+
+1. 确保 detect_cube.py 已经开始运行
+
+2. 新建terminal
+
+3. 输入以下命令：
+
+   ```
+   python3 place_cube.py
+   ```
+
+4. 程序会选择放置槽的 “O” 位置进行放置
 
 # 上传client镜像
 
@@ -362,8 +395,6 @@ sudo docker push dockerhub_name/rmus2022:tag
 ![create_token](./assets/create_token.png)
 
 ![token_created](./assets/token_created.png)
-
-
 
 
 

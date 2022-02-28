@@ -16,7 +16,7 @@ The template to report bug and feature:
 
 # Experience
 
-- [ ] Is the [tutorial](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/blob/main/Tutorial.md) comprehensive enough?
+- [ ] Is the [tutorial](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/blob/main/tutorial-RMUS-EP.md) comprehensive enough?
 - [ ] Is the [installation guide](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/blob/main/docker_client/sim2real-install-guide.md) detail enough?
 - [ ] Is the [README](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/blob/main/README.md) guide clear enough?
 
