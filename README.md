@@ -8,11 +8,11 @@ The RoboMaster EP chassis
 
 The RMUS playground
 
-The official website of the challenge: 
-- https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html
+This repository is dedicated to provide the essential information for developpers to participate the [RoboMaster University Sim2Real Challenge](https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html).
 
-The gitee mirror of this repo is provided for mainland user:
+The github repo and gitee mirror are provided for various users:
 - https://gitee.com/RMUS/ICRA-RM-Sim2Real/
+- https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real
 
 # ICRA-RM-Sim2Real Tutorials
 
