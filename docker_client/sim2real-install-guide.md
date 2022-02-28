@@ -265,7 +265,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 ## 3.1 Download the  docker image
 
-Download the image <font color= Red>(according to the last released version)</font>.
+Download the image <font color= Red>(according to the latest released version)</font>.
 
 ```bash
 sudo docker pull rmus2022/client:v1.0.0
