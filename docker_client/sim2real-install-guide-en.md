@@ -323,7 +323,7 @@ cd ~
 ```
 
 ```bash
-roslaunch habitat_navigation rtab_navigation.launch
+roslaunch carto_navigation navigation.launch
 ```
 
 Send `2D Nav Goal` through `rviz`
@@ -344,24 +344,6 @@ Start a new terminal
 
 ```bash
 cd ./ICRA-RM-Sim2Real/docker_client
-```
-
-```bash
-./exec_client.sh
-```
-
-```bash
-cd ~
-```
-
-```bash
-roslaunch carto_navigation env.launch
-```
-
-Start a new terminal
-
-```bash
-cd ICRA-RM-Sim2Real/docker_client
 ```
 
 ```bash
