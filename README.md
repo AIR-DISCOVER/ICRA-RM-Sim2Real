@@ -2,16 +2,25 @@
 
 ![RoboMasterEP](./assets/RoboMasterEP.gif)
 
+The RoboMaster EP chassis
+
+![RMUS-playground](./assets/RMUS-playground.png)
+
+The RMUS playground
+
 The official website of the competition: 
 - https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html
 
 The gitee mirror of this repo is provided for mainland user:
 - https://gitee.com/RMUS/ICRA-RM-Sim2Real/
+
 # ICRA-RM-Sim2Real Tutorials
 
 ![arch of the RMUS EP SIM2REAL system](./assets/arch-EP-sim2real.png)
 
 The `RMUS SIM2REAL` system consists of the Server/Client two parts seperately, one is the server docker image to deploy the simulation environment and the other is the client docker image to deploy the user algorithm for the EP robot to connect the environment both for simulation and reality.
+
+
 
 Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earlier versions and only want to explore the new ICRA-RM-Sim2Real playground, you can go through the details of installation guide [here](./docker_client/sim2real-install-guide.md). However, going through all basic Entry Level tutorials is still recommended for all users to get exposed to new features.
 
@@ -59,6 +68,25 @@ Ubuntu `20.04` or later in need to support more convenient experience.
    <!--     rgb/depth log optional recording -->
   - online
 
+## Challenge overiew
+
+![FPV-RMUS](./assets/FPV-RMUS.gif)
+
+The RoboMaster University Sim2Real Challenge (“Sim2Real”) at its core allows participants to win points by
+rearranging mineral using fully automated RoboMaster EPs that have been modified officially. 
+
+The match lasts for five minutes with a sim2real-based format, where robots rearrange minerals based on the information shown on the exchange tags to earn points. Participants will be ranked according to their total points won. 
+
+![pick-ore](./assets/pick-ore.gif)
+
+![place-ore](./assets/pick-ore.gif)
+
+The objective of the challenge is to assess how well a program completed on a simulation platform can be operated in real application environments. 
+
+Teams are required to develop and debug their algorithms in a simulator and submit their codes by the specified deadline. The official staff will deploy corresponding codes in physical robots of the same models to earrange minerals. 
+
+Compared to other RoboMaster University events, this challenge does not require teams to build physical robots, allowing participants to focus entirely on algorithm design.
+
 ## Other resource
 
 - The [ICRA2022 RoboMaster University Sim2Real Challenge (RMUS)](https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html)
@@ -76,7 +104,7 @@ Related docker repository
 # Reference
 
 1. [ROS-X-Habitat: Bridging the ROS Ecosystem with Embodied AI](https://arxiv.org/abs/2109.07703)
-   - [Repo](https://github.com/ericchen321/ros_x_habitat)
+   - https://github.com/ericchen321/ros_x_habitat
 2. https://nvidia.github.io/nvidia-docker/
 3. [How to Train Your [Dragon] Embodied Agent (with AI Habitat)](https://aihabitat.org/tutorial/2020/)
 4. https://github.com/facebookresearch/habitat-lab
