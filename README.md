@@ -8,7 +8,7 @@ The RoboMaster EP chassis
 
 The RMUS playground
 
-The official website of the competition: 
+The official website of the challenge: 
 - https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html
 
 The gitee mirror of this repo is provided for mainland user:
@@ -26,7 +26,7 @@ Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earli
 
 If you are new to Linux: You may find it helpful to first do a quick tutorial on common command line tools for linux. A good one is [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).
 
-Hardware requirement: NVIDA GPU 1080+ with driver 470+ in need to support the SIM2REAL environment.
+Hardware requirement: NVIDA GPU 1080+ with driver 470+ in need to support the `Sim2Real` environment.
 
 Ubuntu `20.04` or later in need to support more convenient experience.
 
@@ -72,7 +72,7 @@ Ubuntu `20.04` or later in need to support more convenient experience.
 
 ![FPV-RMUS](./assets/FPV-RMUS.gif)
 
-The RoboMaster University Sim2Real Challenge (“Sim2Real”) at its core allows participants to win points by
+The RoboMaster University Sim2Real Challenge (`Sim2Real`) at its core allows participants to win points by
 rearranging mineral using fully automated RoboMaster EPs that have been modified officially. 
 
 The match lasts for five minutes with a sim2real-based format, where robots rearrange minerals based on the information shown on the exchange tags to earn points. Participants will be ranked according to their total points won. 
