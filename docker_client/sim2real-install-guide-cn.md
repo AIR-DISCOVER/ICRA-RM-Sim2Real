@@ -74,13 +74,13 @@ sudo docker pull rmus2022/server:v1.0.0
 ```
 组委会提供了四个镜像源：
 
-rmus2022/server：v1.0.0
+rmus2022/server:v1.0.0
 
-rmus2022-1/server：v1.0.0
+rmus2022a/server:v1.0.0
 
-rmus2022-2/server：v1.0.0
+rmus2022b/server:v1.0.0
 
-rmus2022-3/server：v1.0.0
+rmus2022c/server:v1.0.0
 
 ![docker_image](./assets/docker_image.png)
 
@@ -206,13 +206,13 @@ sudo docker pull rmus2022/client:v1.0.0
 ```
 组委会提供了四个镜像源：
 
-rmus2022/client：v1.0.0
+rmus2022/client:v1.0.0
 
-rmus2022-1/client：v1.0.0
+rmus2022a/client:v1.0.0
 
-rmus2022-2/client：v1.0.0
+rmus2022b/client:v1.0.0
 
-rmus2022-3/client：v1.0.0
+rmus2022c/client:v1.0.0
 
 ## 2. 创建 docker container
 ```
@@ -325,7 +325,7 @@ roscd ep_detect_and_grasp
 ```
 
 ```
-python3 place_cube.py
+python3 grasp_cube.py
 ```
 
 ## 6. 放置矿石

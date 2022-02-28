@@ -104,9 +104,9 @@ sudo docker pull rmus2022/server:v1.0.0
 
 Four image sources are provided for users:
 - rmus2022/server:v1.0.0
-- rmus2022-1/server:v1.0.0
-- rmus2022-2/server:v1.0.0
-- rmus2022-3/server:v1.0.0
+- rmus2022a/server:v1.0.0
+- rmus2022b/server:v1.0.0
+- rmus2022c/server:v1.0.0
 
 Note: 
 - please pay attention to the official docker host for further update.
@@ -273,9 +273,9 @@ sudo docker pull rmus2022/client:v1.0.0
 
 Four image sources are provided for users:
 - rmus2022/client:v1.0.0
-- rmus2022-1/client:v1.0.0
-- rmus2022-2/client:v1.0.0
-- rmus2022-3/client:v1.0.0
+- rmus2022a/client:v1.0.0
+- rmus2022b/client:v1.0.0
+- rmus2022c/client:v1.0.0
 
 Note: 
 - please pay attention to the official docker host for further update.
@@ -323,7 +323,7 @@ For example:
 
 ## 3.3 rtab navigation
 
-### 3.3.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#23-start-the-server-simulator) in docker server)
+### 3.3.1 Restart the `server` (follow the [step 3](./sim2real-install-guide.md#23-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
@@ -362,7 +362,7 @@ Send `2D Nav Goal` through `rviz`
 
 ## 3.4 cartographer navigation
 
-### 3.4.1 Start the `server` (follow the [step 3](./sim2real-install-guide.md#23-start-the-server-simulator) in docker server)
+### 3.4.1 Restart the `server` (follow the [step 3](./sim2real-install-guide.md#23-start-the-server-simulator) in docker server)
 
 The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
@@ -370,7 +370,7 @@ The `RGB`, `depth`, `third_rgb` monitor should be correct.
 
 ### 3.4.2 Start the `client`
 
-Start a new terminal
+Start a new terminal with the client docker:
 
 ```bash
 cd ./ICRA-RM-Sim2Real/docker_client
@@ -416,8 +416,7 @@ Send `2D Nav Goal` through `rviz`
 ### 3.5.1 Start the red marker detector
 
 1. Remote control the robot to the front of the ore
-2. Start a new terminal
-3. Enter the following command to start the red marker detector: 
+2. Start a new terminal with the client docker for the commands below: 
 
 ```bash
 roscd ep_detect_and_grasp
@@ -429,18 +428,17 @@ python3 detect_cube.py
 
 ![detect_cube](./assets/detect_cube.png)
 
-<!-- ### 3.5.2 Start the mineral ore pick demonstration
+### 3.5.2 Start the mineral ore pick demonstration
 
-1. Start a new terminal
-2. Enter the following command: 
+Start a new terminal with the client docker for the commands below: 
 
 ```bash
 python3 grasp_cube.py
-``` -->
+```
 
 ## 3.6 Place the mineral ore with the demonstration
 
-Start a new terminal for the commands below: 
+Start a new terminal with the client docker for the commands below: 
 
 ```bash
 roscd ep_detect_and_grasp

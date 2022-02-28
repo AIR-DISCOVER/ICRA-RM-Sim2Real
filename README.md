@@ -20,8 +20,6 @@ The github repo and gitee mirror are provided for various users:
 
 The `RMUS SIM2REAL` system consists of the Server/Client two parts seperately, one is the server docker image to deploy the simulation environment and the other is the client docker image to deploy the user algorithm for the EP robot to connect the environment both for simulation and reality.
 
-
-
 Non-Beginners: If you're already familiar enough with Linux+ROS+Habitat or earlier versions and only want to explore the new ICRA-RM-Sim2Real playground, you can go through the details of installation guide [here](./docker_client/sim2real-install-guide.md). However, going through all basic Entry Level tutorials is still recommended for all users to get exposed to new features.
 
 If you are new to Linux: You may find it helpful to first do a quick tutorial on common command line tools for linux. A good one is [here](http://www.ee.surrey.ac.uk/Teaching/Unix/).
