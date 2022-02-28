@@ -69,7 +69,7 @@ Ubuntu `20.04` or later in need to support more convenient experience.
 
 <!-- [中文版本](./README_CN.md) -->
 Related docker repository
-- https://hub.docker.com/repository/docker/rmus2022/server
+- https://hub.docker.com/repository/docker/rmus2022/
 
 <!-- [README of the sim2real agent](./docker_sim2real/README.md) -->
 

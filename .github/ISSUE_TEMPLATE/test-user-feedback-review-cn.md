@@ -15,7 +15,7 @@ We recommend you report the bugs and features dedicatedly in the issues as well,
 
 # Experience
 
-- [ ] Is the [tutorial](../../Tutorial.md) comprehensive enough?
+- [ ] Is the [tutorial](../../tutorial-RMUS-EP.md) comprehensive enough?
 - [ ] Is the [installation guide](../../docker_client/sim2real-install-guide.md) detail enough?
 - [ ] Is the [README](https://github.com/AIR-DISCOVER/ICRA-RM-Sim2Real/blob/main/README.md) guide clear enough?
 

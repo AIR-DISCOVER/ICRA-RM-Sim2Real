@@ -12,6 +12,6 @@ sudo docker run -id --gpus all --name sim2real_client --network host \
         -v /dev/video5:/dev/video5 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v $HOME/Desktop/shared:/shared \
-	rmus2022/client:v0.0.0
+	rmus2022/client:v1.0.0
 
 sudo xhost +

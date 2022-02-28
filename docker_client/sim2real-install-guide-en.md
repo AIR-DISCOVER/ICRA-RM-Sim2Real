@@ -99,7 +99,7 @@ Download the docker image:
 <!-- sudo docker pull hpf9017/habitat:add_gate -->
 
 ```
-sudo docker pull rmus2022/server:v0.0.2
+sudo docker pull rmus2022/server:v1.0.0
 ```
 
 ![docker_image](./assets/docker_image.png)
@@ -258,7 +258,7 @@ Press `4`， place the ore.
 Download the image <font color= Red>(according to the last released version)</font>.
 
 ```bash
-sudo docker pull rmus2022/client:v0.0.0
+sudo docker pull rmus2022/client:v1.0.0
 ```
 
 ## 2. Creator the `client` container

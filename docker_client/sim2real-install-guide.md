@@ -94,13 +94,16 @@ sudo docker login
 
 ## 1.5 Download the docker image
 
-Download the docker image:
+Download the docker image: 
 
 <!-- sudo docker pull hpf9017/habitat:add_gate -->
 
 ```
-sudo docker pull rmus2022/server:v0.0.2
+sudo docker pull rmus2022/server:v1.0.0
 ```
+
+Note: please pay attention to the official docker host for further update.
+- ⁣https://hub.docker.com/r/rmus2022/
 
 ![docker_image](./assets/docker_image.png)
 
@@ -252,8 +255,11 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 Download the image <font color= Red>(according to the last released version)</font>.
 
 ```bash
-sudo docker pull rmus2022/client:v0.0.0
+sudo docker pull rmus2022/client:v1.0.0
 ```
+
+Note: please pay attention to the official docker host for further update.
+- ⁣https://hub.docker.com/r/rmus2022/
 
 ## 3.2 Creator the `client` container
 ```
