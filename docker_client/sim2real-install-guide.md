@@ -2,9 +2,6 @@
 <!-- <font color= Red>(在安装前，须将docker_habitat完全移至~路径下)</font> -->
 ## 1.1 Docker
 
-Reference for docker installation on Ubuntu: 
-- [docker install](https://docs.docker.com/engine/install/ubuntu/)
-
 If docker local installation hasn't been done, switch to the docker_server folder first:
 
 ```
@@ -26,6 +23,9 @@ docker --version
 
 <img src="./assets/docker_version.png" width="40%">
 
+Reference for docker installation on Ubuntu: 
+- [docker install](https://docs.docker.com/engine/install/ubuntu/)
+
 <!-- chmod -->
 
 If the shell script cannot be run, check if there is permission for the script. Otherwise change the mode with `chmod`
@@ -46,9 +46,6 @@ Know issue:
 
 ## 1.3 Install the `nvidia-docker2`
 
-Reference link for docker installation: 
-
-[nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
 ### 1.3.1 Main stages for docker installation reference
 
@@ -76,6 +73,9 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 <!-- ![nvidia_docker](./assets/nvidia_docker.png) -->
 <img src="./assets/nvidia_docker.png" width="80%">
 
+Reference link for docker installation: 
+- [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+
 ## 1.4 docker login
 
 Register the dockerhub account: 
@@ -98,12 +98,21 @@ Download the docker image:
 
 <!-- sudo docker pull hpf9017/habitat:add_gate -->
 
-```
+```bash
 sudo docker pull rmus2022/server:v1.0.0
 ```
 
-Note: please pay attention to the official docker host for further update.
-- ⁣https://hub.docker.com/r/rmus2022/
+Four image sources are provided for users:
+- rmus2022/server:v1.0.0
+- rmus2022-1/server:v1.0.0
+- rmus2022-2/server:v1.0.0
+- rmus2022-3/server:v1.0.0
+
+Note: 
+- please pay attention to the official docker host for further update.
+  - ⁣https://hub.docker.com/r/rmus2022/
+- Campus networks might limit the pull docker speed in the mainland
+
 
 ![docker_image](./assets/docker_image.png)
 
@@ -116,7 +125,8 @@ Due to the size of the image files, waiting for <font color= Red>minutes to more
 ```bash
 cd ./ICRA-RM-Sim2Real/docker_server
 ```
-<font color= Red>Please ensure the right `tag` version in `create_container_server.sh`</font>
+
+<font color= Red>Please confirm the right `tag` and `repository` name in `create_container_server.sh`</font>
 
 ![docker_tag_version](./assets/docker_tag_version.png)
 
@@ -215,6 +225,9 @@ python3 src/scripts/roam_with_joy.py --hab-env-config-path ./configs/roam_config
 
  <!-- --episode-id -1 --scene-id ./data/scene_datasets/mp3d/2t7WUuJeko7/2t7WUuJeko7.glb --video-frame-period 30 -->
 
+The displays of the RGB/depth/third_rgb should be right.
+
+<font color= Red>If there is error, start it again</font>
 
 ![ros_x_habitat_rgb](./assets/ros_x_habitat_rgb.png)
 ![ros_x_habitat_depth](./assets/ros_x_habitat_depth.png)
@@ -258,8 +271,18 @@ Download the image <font color= Red>(according to the last released version)</fo
 sudo docker pull rmus2022/client:v1.0.0
 ```
 
-Note: please pay attention to the official docker host for further update.
-- ⁣https://hub.docker.com/r/rmus2022/
+Four image sources are provided for users:
+- rmus2022/client:v1.0.0
+- rmus2022-1/client:v1.0.0
+- rmus2022-2/client:v1.0.0
+- rmus2022-3/client:v1.0.0
+
+Note: 
+- please pay attention to the official docker host for further update.
+  - ⁣https://hub.docker.com/r/rmus2022/
+- Campus networks might limit the pull docker speed in the mainland
+
+<font color= Red>Please confirm the right `tag` and `repository` name in `create_container_server.sh`</font>
 
 ## 3.2 Creator the `client` container
 ```
@@ -329,7 +352,7 @@ cd ~
 ```
 
 ```bash
-roslaunch habitat_navigation rtab_navigation.launch
+roslaunch rtab_navigation rtab_navigation.launch
 ```
 
 Send `2D Nav Goal` through `rviz`
@@ -362,9 +385,9 @@ cd ~
 ```
 
 ```bash
-roslaunch carto_navigation env.launch
+roslaunch carto_navigation navigation.launch
 ```
-
+<!-- 
 Start a new terminal
 
 ```bash
@@ -381,7 +404,7 @@ cd ~
 
 ```bash
 roslaunch carto_navigation navigation.launch
-```
+``` -->
 
 Send `2D Nav Goal` through `rviz`
 
@@ -392,33 +415,50 @@ Send `2D Nav Goal` through `rviz`
 
 ### 3.5.1 Start the red marker detector
 
-1. Start a new terminal
-2. Enter the following command: 
+1. Remote control the robot to the front of the ore
+2. Start a new terminal
+3. Enter the following command to start the red marker detector: 
+
+```bash
+roscd ep_detect_and_grasp
+```
 
 ```bash
 python3 detect_cube.py
 ```
 
-### 3.5.2 Start the mineral ore pick demonstration
+![detect_cube](./assets/detect_cube.png)
+
+<!-- ### 3.5.2 Start the mineral ore pick demonstration
 
 1. Start a new terminal
 2. Enter the following command: 
 
 ```bash
 python3 grasp_cube.py
+``` -->
+
+## 3.6 Place the mineral ore with the demonstration
+
+Start a new terminal for the commands below: 
+
+```bash
+roscd ep_detect_and_grasp
 ```
-
-## 3.6 Place the mineral ore
-
-1. Ensure `detect_cube.py` is started
-2. Start a new terminal
-3. Enter the following command: 
 
 ```bash
 python3 place_cube.py
 ```
 
-4. The robot will get the leftmost Exchange Station to place
+1. Remote control the robot to the front of the Exchange Stations
+2. Ensure `detect_cube.py` is started
+3. Start a new terminal for the following command: 
+
+```bash
+python3 place_cube.py
+```
+
+4. The robot will get the `O` between the `BOX` three Exchange Stations to place
 
 # 4. Update the client image
 

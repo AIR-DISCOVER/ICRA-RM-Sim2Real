@@ -330,7 +330,7 @@ python3 place_cube.py
 
 ## 6. 放置矿石
 
-遥控机器人到矿石前方,确保 detect_cube.py 已经开始运行
+遥控机器人到兑换站前方,确保 detect_cube.py 已经开始运行
 
 新建terminal
 
