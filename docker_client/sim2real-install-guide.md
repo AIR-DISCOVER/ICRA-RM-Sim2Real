@@ -413,6 +413,10 @@ Send `2D Nav Goal` through `rviz`
 
 ## 3.5 Pick the mineral ore
 
+Here we will introduce the basic process of how pickup/place the ore, and the demonstration of the usage of the automatic detector.
+
+Note: Here comes the [the Vision Markers on the Cube](https://dl.djicdn.com/downloads/robomaster-s1/20190620/RoboMaster_S1_Vision_Markers_44pcs_15_15cm_updated.pdf), feel free to build your own detector.
+
 ### 3.5.1 Start the red marker detector
 
 1. Remote control the robot to the front of the ore

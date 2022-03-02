@@ -53,7 +53,7 @@ Odometer | [RoboMaster SDK](https://github.com/dji-sdk/robomaster-sdk) | 10 | -
 
 <!-- ### 1.2.1 Lidar
 ​
-[Rplidar A2](https://www.slamtec.com/en/Lidar/A3)
+[Rplidar A2](https://www.slamtec.com/en/Lidar/A2)
 
 - Scan Rate:        12hz
 - Sample Rate:      16000 times per second	
