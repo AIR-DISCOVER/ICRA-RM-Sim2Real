@@ -418,10 +418,10 @@ $ ./create_container.sh
 $ ./exec.sh
 ```
 
-<!-- 再次启动镜像，无需执行create_container_algo.sh脚本，否则会丢失所有对镜像的修改， -->
+<!-- 再次启动镜像，无需执行create_container_client.sh脚本，否则会丢失所有对镜像的修改， -->
 Start the image again. 
 
-Note **Do Not** executing the `create_container_algo.sh` script, otherwise all modifications to the image will be lost:
+Note **Do Not** executing the `create_container_client.sh` script, otherwise all modifications to the image will be lost:
 
 ```bash
 # Firstly
@@ -438,14 +438,14 @@ $ ./exec_.sh
 ```bash
 # start Habitat simulator docker image for the first time
 $ cd docker_sim2real
-$ ./create_container_algo.sh
-$ ./exec_algo.sh
+$ ./create_container_client.sh
+$ ./exec_client.sh
 ```
 
-<!-- 再次启动镜像，无需执行create_container_algo.sh脚本，否则会丢失所有对镜像的修改， -->
+<!-- 再次启动镜像，无需执行create_container_client.sh脚本，否则会丢失所有对镜像的修改， -->
 Start the image again. 
 <!-- [TODO] -->
-Note **Do Not** executing the `create_container_algo.sh` script, otherwise all modifications to the image will be lost:
+Note **Do Not** executing the `create_container_client.sh` script, otherwise all modifications to the image will be lost:
 
 ```bash
 # Firstly
@@ -453,7 +453,7 @@ $ sudo docker ps -a #get the current [container ID]
 $ sudo docker start container_ID
 # after the container started
 $ cd docker_sim2real
-$ ./exec_algo.sh
+$ ./exec_client.sh
 ```
 
 ## 4.1 Map based on cartographer

@@ -290,7 +290,7 @@ cd ./ICRA-RM-Sim2Real/docker_client
 ```
 <font color= Red>Confirm the `tag` in `create_container_client` is the right version.</font>
 
-<font color= Red>Change the CPU and RAM parameter from the `create_container_algo.sh` according to the host machine, to meet the performance of robot on board NUC unit.
+<font color= Red>Change the CPU and RAM parameter from the `create_container_client.sh` according to the host machine, to meet the performance of robot on board NUC unit.
 </font>  
 
 Formula to compute CPU scaling coefficient
@@ -315,7 +315,7 @@ For example:
 ./create_container_client.sh
 ```
 
-<font color= Red>for the first time of execution there will be "Error: No such container: sim2real_algo", no need to worry.</font>
+<font color= Red>for the first time of execution there will be "Error: No such container: sim2real_client", no need to worry.</font>
 
 <font color= Red>Changes without `docker commit` will be deleted after each time the script run.</font>
 
@@ -567,7 +567,7 @@ The sim/real robot onboard computation sharing the same docker system provided h
 
 Start a new terminal
 
-<font color= Red>for the first time of execution there will be "Error: No such container: sim2real_algo"</font>
+<font color= Red>for the first time of execution there will be "Error: No such container: sim2real_client"</font>
 ![avatar](./assets/docker_container_sim2real.png)
 ```
 ./exec_elgo.sh
