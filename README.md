@@ -1,5 +1,7 @@
 # ICRA-RM-Sim2Real
 
+[![Join the chat at https://gitter.im/ICRA-RM-Sim2Real/community](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ICRA-RM-Sim2Real/community?utm_source=badge&utm_medium=badge&utm_content=badge)
+
 ![RoboMasterEP](./assets/RoboMasterEP.gif)
 
 The RoboMaster EP chassis
