@@ -91,6 +91,7 @@ Compared to other RoboMaster University events, this challenge does not require 
 
 - The [ICRA2022 RoboMaster University Sim2Real Challenge (RMUS)](https://air.tsinghua.edu.cn/robomaster/sim2real_icra22.html)
   - [the RMUS rulebook](https://air.tsinghua.edu.cn/robomaster/RMUS2022_rules_manual.pdf)
+  - [FAQ List](https://air.tsinghua.edu.cn/robomaster/FAQ_List.pdf) [CN](https://air.tsinghua.edu.cn/robomaster/FAQ_List_Chinese.pdf)
   - [the Vision Markers on the Cube](https://dl.djicdn.com/downloads/robomaster-s1/20190620/RoboMaster_S1_Vision_Markers_44pcs_15_15cm_updated.pdf)
 - Docker
 - welcome to submit Issues
