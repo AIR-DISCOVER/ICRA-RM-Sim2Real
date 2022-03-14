@@ -44,8 +44,8 @@ SSD | 256G
 Sensor | Type | Freq (SPS) | Others
 -- | -- | -- | --
 Lidar | [SlamTech Rplidar A2](https://www.slamtec.com/cn/Lidar/A2) | 10 | 8000sps, 0.2m-16m
-RGB Camera | ​ [Intel Realsense D435i](https://www.intelrealsense.com/zh-hans/depth-camera-d435i/) | 30 | 640x480 pixels, FOV 87° x 58°
-Depth Camera | ​ Intel Realsense D435i | 30 | 640x480 pixels,  FOV 87° x 58°
+RGB Camera | ​ [Intel Realsense D435i](https://www.intelrealsense.com/zh-hans/depth-camera-d435i/) | 30 | 848x480 pixels, FOV 69° x 42°
+Depth Camera | ​ Intel Realsense D435i | 30 | 848x480 pixels,  FOV 69° x 42°
 IMU | [HiPNUC Hi226 6-axis IMU/VRU](https://www.hipnuc.com/product_hi226.html) | 30 | Static roll and pitch errors: 0.8° <br>Static roll and pitch angles, error bound: 2.5° <br>bias error of gyroscope: < 10°/h <br>Heading angle error when moving (under 6-axis mode): < 10°
 Odometer | [RoboMaster SDK](https://github.com/dji-sdk/robomaster-sdk) | 10 | -
 
