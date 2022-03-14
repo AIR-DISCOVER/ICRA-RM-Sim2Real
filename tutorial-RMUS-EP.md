@@ -155,6 +155,7 @@ Enter the docker setup from [Install guide](./docker_sim2real/sim2real-install-g
 
 All the Published/Subscribed Topics from the EP robot for the challenge evaluation are here:
 
+```bash
 Published topics:
  * /rosout_agg [rosgraph_msgs/Log] 1 publisher
  * /rosout [rosgraph_msgs/Log] 7 publishers
@@ -181,9 +182,11 @@ Subscribed topics:
  * /arm_gripper [geometry_msgs/Point] 1 subscriber
  * /arm_position [geometry_msgs/Pose] 1 subscriber
  * /cmd_position [geometry_msgs/Twist] 1 subscriber
+```
 
 The topics below are dedicated to debugging, and will not be valid in the challenge evaluation mode both for simulation and real:
 
+```bash
 Published topics:
  * /image_view_depth/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
  * /image_view_third/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
@@ -205,6 +208,8 @@ Published topics:
 Subscribed topics:
  * /camera/aligned_depth_to_color/image_raw [sensor_msgs/Image] 1 subscriber
  * /camera/color/image_raw [sensor_msgs/Image] 1 subscriber
+```
+
  <!-- * /third_rgb [sensor_msgs/Image] 1 subscriber
  * /pointgoal_with_gps_compass [ros_x_habitat/PointGoalWithGPSCompass] 1 subscriber
  * /gps/goal [move_base_msgs/MoveBaseActionGoal] 1 subscriber -->
