@@ -398,6 +398,67 @@ $ rostopic echo /position/target_1
 # z: 1.8200000524520874
 ```
 
+### 2.3.4 The location of Exchange Station
+
+`/judgement/exchange_markers` [std_msgs/String]
+`/judgement/markers_time` [std_msgs/String]
+
+`/judgement/exchange_markers` is the topic to broadcast the marker digits for the exchange station, in the format below:
+
+```bash
+$ rostopic echo judgement/exchange_markers
+data: "3, 5, 2"
+---
+data: "3, 5, 2"
+---
+```
+
+`/judgement/markers_time` is the topic to broadcast the successful time to place the mineral ore in the right exchange station. There are 4 states for each exchange station:
+
+1. `⁣NaN`, Wait for the client
+2. `0.0`, client EP robot moved, the markers timer started 
+3. `float`, Markers 
+4. `None`, foul, you hit the exchange station, the marker(s) that you didn't put the right ore will no longer been recorded.
+
+An example is as below:
+
+```bash
+$ rostopic echo judgement/markers_time
+data: "nan, nan, nan"
+---
+data: "nan, nan, nan"
+---
+data: "nan, nan, nan"
+---
+
+...
+
+data: "0, 0, 0"
+---
+data: "0, 0, 0"
+---
+data: "0, 0, 0"
+---
+
+...
+
+data: "0, 0, 102.366459608078"
+---
+data: "0, 0, 102.366459608078"
+---
+data: "0, 0, 102.366459608078"
+---
+
+...
+
+data: "0, None, 102.366459608078"
+---
+data: "0, None, 102.366459608078"
+---
+data: "0, None, 102.366459608078"
+---
+```
+
 # 3 the Challenge field
 
 ![challenge-field](./assets/challenge-field.jpg)
@@ -405,7 +466,7 @@ $ rostopic echo /position/target_1
 <!-- 包含仿真环境坐标系（world)、地图坐标系（map）、里程计坐标系（odom），仿真环境基坐标系（world），仿真环境中机器人初始位置（initial pose）位置如图所示，具体位置关系为(4.2, 0, 3.5)。 -->
 Including the simulation coordinate system (world), map coordinate system (map), odometer coordinate system (odom), the initial pose of the robot in simulation (initial pose), the specific location is `(4.2, 0, 3.5)`.
 
-<!-- # 4. Tutorial for instance -->
+# 4. Tutorial for instance
 
 ## 4.0 Enter the docker
 
