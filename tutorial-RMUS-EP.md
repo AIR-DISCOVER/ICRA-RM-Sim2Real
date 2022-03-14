@@ -153,7 +153,7 @@ Enter the docker setup from [Install guide](./docker_sim2real/sim2real-install-g
 
 `sim2real@Ubuntu:~$ rostopic list -v`
 
-All the Published/Subscribed Topics from the EP robot for the challenge evaluation is here:
+All the Published/Subscribed Topics from the EP robot for the challenge evaluation are here:
 
 Published topics:
  * /rosout_agg [rosgraph_msgs/Log] 1 publisher
@@ -182,7 +182,7 @@ Subscribed topics:
  * /arm_position [geometry_msgs/Pose] 1 subscriber
  * /cmd_position [geometry_msgs/Twist] 1 subscriber
 
-The topics below is dedicated for debugging, will not be valid in the challenge evaluation mode both for simulation and real:
+The topics below are dedicated to debugging, and will not be valid in the challenge evaluation mode both for simulation and real:
 
 Published topics:
  * /image_view_depth/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
@@ -205,9 +205,9 @@ Published topics:
 Subscribed topics:
  * /camera/aligned_depth_to_color/image_raw [sensor_msgs/Image] 1 subscriber
  * /camera/color/image_raw [sensor_msgs/Image] 1 subscriber
- * /third_rgb [sensor_msgs/Image] 1 subscriber
+ <!-- * /third_rgb [sensor_msgs/Image] 1 subscriber
  * /pointgoal_with_gps_compass [ros_x_habitat/PointGoalWithGPSCompass] 1 subscriber
- * /gps/goal [move_base_msgs/MoveBaseActionGoal] 1 subscriber
+ * /gps/goal [move_base_msgs/MoveBaseActionGoal] 1 subscriber -->
 
 ## 2.1 Sensor topics
 
@@ -406,6 +406,8 @@ $ rostopic echo /position/target_1
 `/judgement/exchange_markers` [std_msgs/String]
 `/judgement/markers_time` [std_msgs/String]
 
+These two topics are dedicated to debugging purpose, and will not be valid in challenge evaluation both for simulation and real.
+
 `/judgement/exchange_markers` is the topic to broadcast the marker digits for the exchange station, in the format below:
 
 ```bash
@@ -418,9 +420,9 @@ data: "3, 5, 2"
 
 `/judgement/markers_time` is the topic to broadcast the successful time to place the mineral ore in the right exchange station. There are 4 states for each exchange station:
 
-1. `⁣NaN`, Wait for the client
+1. `nan`, Wait for the client
 2. `0.0`, client EP robot moved, the markers timer started 
-3. `float`, place time for the ore
+3. `[float]`, elapsed time of the ore get placed
 4. `None`, foul, you hit the exchange station, the marker(s) that you didn't put the right ore will no longer been recorded.
 
 An example is as below:
