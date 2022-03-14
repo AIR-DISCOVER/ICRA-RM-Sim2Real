@@ -153,25 +153,17 @@ Enter the docker setup from [Install guide](./docker_sim2real/sim2real-install-g
 
 `sim2real@Ubuntu:~$ rostopic list -v`
 
-All the Published/Subscribed Topics is printed:
+All the Published/Subscribed Topics from the EP robot for the challenge evaluation is here:
 
 Published topics:
  * /rosout_agg [rosgraph_msgs/Log] 1 publisher
  * /rosout [rosgraph_msgs/Log] 7 publishers
- * /cmd_vel [geometry_msgs/Twist] 1 publisher
- * /arm_position [geometry_msgs/Pose] 1 publisher
- * /arm_gripper [geometry_msgs/Point] 1 publisher
  * /image_view_rgb/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
- * /image_view_third/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
- * /image_view_depth/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
- * /image_view_rgb/parameter_updates [dynamic_reconfigure/Config] 1 publisher
- * /image_view_third/parameter_updates [dynamic_reconfigure/Config] 1 publisher
  * /image_view_depth/parameter_updates [dynamic_reconfigure/Config] 1 publisher
+ * /image_view_rgb/parameter_updates [dynamic_reconfigure/Config] 1 publisher
  * /image_view_depth/output [sensor_msgs/Image] 1 publisher
- * /image_view_third/output [sensor_msgs/Image] 1 publisher
  * /image_view_rgb/output [sensor_msgs/Image] 1 publisher
  * /camera/color/image_raw [sensor_msgs/Image] 1 publisher
- * /third_rgb [sensor_msgs/Image] 1 publisher
  * /camera/color/camera_info [sensor_msgs/CameraInfo] 1 publisher
  * /camera/aligned_depth_to_color/image_raw [sensor_msgs/Image] 1 publisher
  * /camera/aligned_depth_to_color/camera_info [sensor_msgs/CameraInfo] 1 publisher
@@ -182,6 +174,22 @@ Published topics:
  * /rplidar/scan [sensor_msgs/LaserScan] 1 publisher
  * /ep/odom [nav_msgs/Odometry] 1 publisher
  * /gripper_state [geometry_msgs/Point] 1 publisher
+
+Subscribed topics:
+ * /rosout [rosgraph_msgs/Log] 1 subscriber
+ * /cmd_vel [geometry_msgs/Twist] 1 subscriber
+ * /arm_gripper [geometry_msgs/Point] 1 subscriber
+ * /arm_position [geometry_msgs/Pose] 1 subscriber
+ * /cmd_position [geometry_msgs/Twist] 1 subscriber
+
+The topics below is dedicated for debugging, will not be valid in the challenge evaluation mode both for simulation and real:
+
+Published topics:
+ * /image_view_depth/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
+ * /image_view_third/parameter_descriptions [dynamic_reconfigure/ConfigDescription] 1 publisher
+ * /image_view_third/parameter_updates [dynamic_reconfigure/Config] 1 publisher
+ * /image_view_third/output [sensor_msgs/Image] 1 publisher
+ * /third_rgb [sensor_msgs/Image] 1 publisher
  * /pose/cube_1 [geometry_msgs/Pose] 1 publisher
  * /pose/cube_2 [geometry_msgs/Pose] 1 publisher
  * /pose/cube_3 [geometry_msgs/Pose] 1 publisher
@@ -195,15 +203,10 @@ Published topics:
  * /judgement/markers_time [std_msgs/String] 1 publisher
 
 Subscribed topics:
- * /rosout [rosgraph_msgs/Log] 1 subscriber
  * /camera/aligned_depth_to_color/image_raw [sensor_msgs/Image] 1 subscriber
- * /third_rgb [sensor_msgs/Image] 1 subscriber
  * /camera/color/image_raw [sensor_msgs/Image] 1 subscriber
+ * /third_rgb [sensor_msgs/Image] 1 subscriber
  * /pointgoal_with_gps_compass [ros_x_habitat/PointGoalWithGPSCompass] 1 subscriber
- * /cmd_vel [geometry_msgs/Twist] 1 subscriber
- * /arm_gripper [geometry_msgs/Point] 1 subscriber
- * /arm_position [geometry_msgs/Pose] 1 subscriber
- * /cmd_position [geometry_msgs/Twist] 1 subscriber
  * /gps/goal [move_base_msgs/MoveBaseActionGoal] 1 subscriber
 
 ## 2.1 Sensor topics
@@ -417,7 +420,7 @@ data: "3, 5, 2"
 
 1. `⁣NaN`, Wait for the client
 2. `0.0`, client EP robot moved, the markers timer started 
-3. `float`, Markers 
+3. `float`, place time for the ore
 4. `None`, foul, you hit the exchange station, the marker(s) that you didn't put the right ore will no longer been recorded.
 
 An example is as below:
@@ -466,7 +469,7 @@ data: "0, None, 102.366459608078"
 <!-- 包含仿真环境坐标系（world)、地图坐标系（map）、里程计坐标系（odom），仿真环境基坐标系（world），仿真环境中机器人初始位置（initial pose）位置如图所示，具体位置关系为(4.2, 0, 3.5)。 -->
 Including the simulation coordinate system (world), map coordinate system (map), odometer coordinate system (odom), the initial pose of the robot in simulation (initial pose), the specific location is `(4.2, 0, 3.5)`.
 
-# 4. Tutorial for instance
+# 4. Tutorial for client instance
 
 ## 4.0 Enter the docker
 
