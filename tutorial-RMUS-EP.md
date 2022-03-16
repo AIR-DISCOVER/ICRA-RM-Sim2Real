@@ -426,7 +426,7 @@ data: "3, 5, 2"
 `/judgement/markers_time` is the topic to broadcast the successful time to place the mineral ore in the right exchange station. There are 4 states for each exchange station:
 
 1. `nan`, Wait for the client
-2. `0.0`, client EP robot moved, the markers timer started 
+2. `0`, client EP robot moved, the markers timer started, no corresponding ore placed
 3. `[float]`, elapsed time of the ore get placed
 4. `None`, foul, you hit the exchange station, the marker(s) that you didn't put the right ore will no longer been recorded.
 
@@ -484,8 +484,8 @@ Including the simulation coordinate system (world), map coordinate system (map),
 
 ```bash
 # start Habitat simulator docker image for the first time
-$ cd docker_habitat
-$ ./create_container.sh
+$ cd docker_server
+$ ./create_container_server.sh
 $ ./exec.sh
 ```
 
@@ -508,7 +508,7 @@ $ ./exec_.sh
 
 ```bash
 # start Habitat simulator docker image for the first time
-$ cd docker_sim2real
+$ cd docker_client
 $ ./create_container_client.sh
 $ ./exec_client.sh
 ```
